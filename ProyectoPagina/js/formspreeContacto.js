@@ -1,5 +1,6 @@
-  var form = document.getElementById("form");
-    
+  var form = document.getElementById("formContacto");
+     
+  
     async function handleSubmit(event) {
       event.preventDefault();
 
@@ -28,4 +29,5 @@
         status.innerHTML = "Ocurrió un error. Intentelo nuevamente!"
       });
     }
+    
     form.addEventListener("submit", handleSubmit)
