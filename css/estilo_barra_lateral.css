@@ -1,0 +1,318 @@
+/*------Selector universal-------*/
+
+*   {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin:0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+/*----------Barra lateral-------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap'); /*Importamos fuentes*/
+:root{
+    --color-barra-lateral: rgb(255,255,255);
+    --color-texto:rgb(0,0,0);
+    --color-texto-menu:rgb(51, 51, 51);
+    --color-boton:rgb(201, 61, 171);
+    --color-boton-texto:rgb(255,255,255);
+    --color-menu-hover: rgb(219, 218, 218);
+    --color-boton-hover:rgb(224, 74, 192);
+    --color-menu-hover-texto: rgb(0,0,0);
+    --color-linea: rgb(173, 173, 173);
+    --color-switch-base: rgb(201,202,206);
+    --color-switch-circulo: rgb(241,241,241);
+    --color-scroll: rgb(0,0,0);
+    --color-scroll-hover: rgb(134,136,144);
+    --color-boton-login: rgb(119, 119, 119);
+}
+
+.modo-oscuro-activado{
+    --color-barra-lateral: rgb(44,45,49);
+    --color-texto:rgb(255,255,255);
+    --color-texto-menu:rgb(194, 194, 194);
+    --color-boton:rgb(201, 61, 171);
+    --color-boton-texto:rgb(238,238,238);
+    --color-boton-hover:rgb(224, 74, 192);
+    --color-menu-hover: rgb(61, 61, 61);
+    --color-menu-hover-texto: rgb(255, 255, 255);
+    --color-linea: rgb(85, 84, 94);
+    --color-switch-base: rgb(39,205,64);
+    --color-switch-circulo: rgb(255,255,255);
+    --color-scroll: rgb(255,255,255);
+    --color-scroll-hover: rgb(134,136,144);
+    --color-boton-login: rgb(151, 151, 151);
+}
+
+
+
+/*Menu*/
+.menu{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--color-boton);
+    color: var(--color-boton-texto);
+    right: 15px;
+    top: 15px;
+    z-index: 100;
+}
+
+
+.barra-lateral{
+    position: fixed;
+    display: flex;
+    flex-direction: column; /*Organizar en columnas*/
+    width: 230px;
+    overflow: hidden;
+    height: 100%;
+    padding: 20px 15px;
+    background-color: var(--color-barra-lateral);
+    transition: width 0.5s ease,background-color 0.3s ease,left 0.5s ease;
+    z-index: 50;
+}
+
+.mini-barra-lateral{
+    width: 50px;
+}
+
+.barra-lateral span{
+    font-size: 16px;
+    width: 100px;
+    white-space: nowrap; /*Para que no salte de linea span*/
+    text-align: left;
+    opacity: 1;  /*Opacidad 1 si no esta .oculto*/
+    transition: opacity 0.5s ease, width 0.5s ease; /*Transition a opacity y ancho*/
+}
+
+.barra-lateral span.oculto{
+    opacity: 0; /*Opacidad 0 si esta .oculto*/
+    width: 0; /*Ancho de texto en 0 para que no ocupe espacio al cerrar barra lateral*/
+}
+
+/*NOMBRE DE LA PAGINA*/
+.barra-lateral .nombre-pagina{
+    width: 100%;
+    height: 45px;
+    color: var(--color-texto);
+    margin-bottom: 30px; /*Margen entre nombre de la pagina y el boton*/
+    display: flex;
+    align-items: center;
+}
+
+.barra-lateral .nombre-pagina ion-icon{
+    min-width: 50px; /*Minimo alto de icono*/
+    font-size: 40px; /*Tamaño de letra*/
+}
+.barra-lateral .nombre-pagina span{
+    margin-left: 5px; /*Margin entre nombre e icono de la pagina*/
+    font-size: 25px; /*Tamaño de letra*/
+}
+.barra-lateral .nombre-pagina span a{
+    text-decoration: none;
+    user-select: none;
+}
+
+.barra-lateral .nombre-pagina span a img{
+    width: 120%;
+}
+
+
+.barra-lateral .nombre-pagina span a:visited{
+    color: var(--color-texto);
+}
+
+/*Boton*/
+.barra-lateral .boton-ingresar{
+    width: 100%; /*Ancho*/
+    height: 45px; /*Alto*/
+    display: flex; /*Elemento flexible*/
+    align-items: center; /*Centrar elementos*/
+    margin-bottom: 25px; /*Margen entre menu y boton*/
+    justify-content: center; /*Centrar elementos*/
+    border: none; /*Borrar borde*/
+    border-radius: 10px; /*Redondear boton*/
+    background-color: var(--color-boton); /*Color de fondo en variable*/
+    color: var(--color-boton-texto); /*Color texto en variable*/
+}
+
+.barra-lateral .boton-ingresar:hover{
+    background-color: var(--color-boton-hover); /*Color de fondo en variable*/
+    color: var(--color-boton-texto); /*Color texto en variable*/
+    cursor: pointer;
+}
+
+.barra-lateral ion-icon{
+    min-width: 50px;
+    font-size: 25px;
+}
+
+/*Menu navegacion*/
+.activo{
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}
+
+.barra-lateral .navegacion{
+    overflow-y: auto; /*Organizar elementos segun altura*/
+    overflow-x: hidden; /*Borrar elementos a medida que se achica la pantalla*/
+}
+
+.barra-lateral .navegacion::-webkit-scrollbar{
+    width: 5px;
+}
+
+.barra-lateral .navegacion::-webkit-scrollbar-thumb{
+    background-color: var(--color-scroll);
+    border-radius: 5px;
+}
+
+.barra-lateral .navegacion::-webkit-scrollbar-thumb:hover{
+    background-color: var(--color-scroll-hover);
+    
+}
+
+.barra-lateral .navegacion li{
+    list-style: none; /*Borramos estilo de la lista*/
+    display: flex;
+    margin-bottom: 5px; /*Margen entre botones*/
+}
+
+.barra-lateral .navegacion a{
+    width: 100%; /*Ancho*/
+    height: 45px; /*Alto*/
+    display: flex;
+    align-items: center; /*Centrar elementos internos verticalmente*/
+    text-decoration: none; /*Eliminar subrayado*/
+    border-radius: 10px; /*Redondear boton*/
+    color: var(--color-texto-menu); /*Color texto en variable*/
+}
+
+.barra-lateral .navegacion a:hover{ /*Cuando pasas el mouse sobre el boton de la barra de navegacion :hover*/
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}
+
+.barra-lateral .navegacion ion-icon{
+    min-width: 50px;
+    font-size: 20px;
+}
+
+/*Linea*/
+.barra-lateral .linea{
+    width: 100%;
+    height: 1px;
+    margin-top: 15px;
+    background-color: var(--color-linea);
+}
+
+/*Modo Oscuro*/
+
+.barra-lateral .modo-oscuro{
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between; /*Deja el mayor espacio posible entre elementos*/
+}
+
+.barra-lateral .modo-oscuro .info{
+    overflow: hidden;
+    width: 200px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    color: var(--color-texto-menu);
+    user-select: none;
+}
+
+.barra-lateral .modo-oscuro ion-icon{
+    width: 50px;
+    font-size: 20px;
+}
+
+/*Switch*/
+
+.barra-lateral .modo-oscuro .switch{
+    display: flex;
+    align-items: center; /*Centrar los elementos horizontal*/
+    justify-items: center; /*Centrar los elementos vertical*/
+    min-width: 50px;
+    height: 45px;
+    cursor: pointer; /*Cambiar cursor al pasar por arriba*/
+    user-select: none;
+}
+
+.barra-lateral .modo-oscuro .base{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 35px;
+    height: 20px;
+    background-color: var(--color-switch-base);
+    border-radius: 50px;
+}
+
+.barra-lateral .modo-oscuro .circulo{
+    position: absolute;
+    width: 18px;
+    height: 90%;
+    background-color: var(--color-switch-circulo);
+    border-radius: 50%;
+    left: 2px;
+    transition: left 0.5s ease;
+}
+
+.barra-lateral .modo-oscuro .circulo.prendido{
+    left: 15px;
+}
+
+/*Main*/
+main{
+margin-left: 250px;
+padding: 20px;
+transition: margin-left 0.5s ease;
+}
+main.min-main{
+    margin-left: 80px;
+}
+
+/*Responsive*/
+
+@media(max-height: 460px){
+    .barra-lateral .nombre-pagina{
+        margin-bottom: 5px;
+    }
+    .barra-lateral .modo-oscuro{
+        margin-bottom: 3px;
+    }
+}
+
+@media(max-width: 600px){
+    .barra-lateral{
+        position: fixed;
+        left: -300px;
+    }
+    .max-barra-lateral{
+        left: 0;
+    }
+    .menu{
+        display: flex;
+    }
+    .menu ion-icon:nth-child(2){
+        display: none;
+    }
+    main{
+        margin-left: 0;
+    }
+    main.min-main{
+        margin-left: 0;
+    }
+}
+
+/*-----------------------------------*/
