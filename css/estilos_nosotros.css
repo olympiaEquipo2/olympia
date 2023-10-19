@@ -1,0 +1,44 @@
+.nosotros {
+    max-width: 1000px;
+    margin-top: 0;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+h3 {
+    color:rgb(201, 61, 171);
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+#cierre {
+    text-align: center;
+    font-style: italic;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+
+@media (min-width: 720px){
+    .contenedor_header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .contenedor_header .item{
+        flex-direction: row;
+    }
+
+}

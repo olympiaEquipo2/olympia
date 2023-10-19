@@ -1,0 +1,146 @@
+h2{
+    text-align: center;
+    color: #555;
+    margin: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 30px;
+}
+
+
+.grid-container_clases {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    max-width: 1400px;
+    margin: 50px 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.grid-container_cursos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    max-width: 1400px;
+    margin: 50px 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;   
+    align-items: center;
+}
+
+table {
+    width: 300px;
+    margin: 0 auto; /* Centrar la tabla */
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 40px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+p.clases{
+    text-align: center;
+    color: #555;
+    margin: 10px;
+    text-shadow: 2px 2px 4px rgba(201, 61, 171);
+    font-size: 30px;
+}
+
+.tipo-horarios{
+    text-align: center;
+    color: #555;
+    margin: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 25px;
+}
+
+.tipo-dias{
+    text-align: center;
+    color: #555;
+    margin: 10px;
+    text-shadow: 2px 2px 4px rgba(201, 61, 171);
+    font-size: 20px;
+}
+
+
+
+button.reserva{
+    font-size: 1em;
+    padding: 5px 20px;
+    max-width: fit-content;
+    margin: 10px;
+    background-color: rgb(201, 61, 171);
+    color:white;
+    border: none;
+    border-radius: 5px;
+}
+
+button.reserva:hover{
+    background-color: rgb(224, 74, 192);
+}
+
+
+.tipo{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid rgba(0,0,0,0.3);
+    align-items: center;
+    margin: 10px;
+    min-width: 230px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+a:hover{
+    color:rgb(201, 61, 171);
+}
+
+.tipo-yoga {
+    text-align: center;
+}
+
+h3{
+    font-weight: bold;
+    margin: 10px;
+}
+
+@media (min-width: 720px){
+  
+    .contenedor_header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .contenedor_header .item{
+        flex-direction: row;
+    }
+    .grid-container_clases {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        max-width: 1300px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+    }
+    .grid-container_cursos {
+        display: flex;
+        flex-direction: row;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        max-width: 1300px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+    }
+}

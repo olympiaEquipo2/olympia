@@ -1,0 +1,193 @@
+#imagen_portada{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 50vh;
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.5),  rgba(0,0,0,0.5)) 
+                    ,url("/imagenes/Yoga02.jpg");
+    color: white;
+    background-position: center center;
+    margin-top: 0;
+    max-width: 1300px;
+    margin: auto;
+}
+
+#imagen_portada .saludo{
+    font-size: x-large;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.contenedor_cursos{
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 50px 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    align-items: center;
+}
+
+#cursos h2 {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+h3 {
+    color:rgb(201, 61, 171);
+    margin-bottom: 10px;
+}
+
+.go-top-button {
+    font-size: 1em;
+    padding: 5px 20px;
+    max-width: fit-content;
+    margin: 10px;
+    background-color: rgb(201, 61, 171);
+    color:white;
+    border: none;
+    border-radius: 5px;
+}
+
+.go-top-button.active {
+    display: block;
+}
+
+.go-top-button:hover{
+    background-color: rgb(224, 74, 192);
+}
+
+.go-top-button ion-icon{
+    min-width: 10px; /*Minimo alto de icono*/
+    margin-right: 10px;
+    font-size: 15px; /*Tamaño de letra*/
+}
+
+
+/* -------- Responsive ------------- */
+
+@media (min-width: 720px){
+    .contenedor_header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .contenedor_header .menu{
+        flex-direction: row;
+    }
+
+    #cursos{
+        align-content:  center;
+    }
+
+    .contenedor_cursos{
+        display: flex;
+        flex-direction: column;
+        max-width: 1200px;
+        margin: auto;
+        margin-top: 40px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .nuestros-cursos .item{
+        display:flex;
+        align-items:center;
+        margin: 40px;
+    }
+
+    .nuestros-cursos .texto-izq{
+        width: 50%;
+        margin-right: 50px;
+        text-align: justify;
+    }
+
+    .nuestros-cursos .texto-der{
+        width: 50%;
+        margin-left: 50px;
+        text-align: justify;
+    }
+
+    #cursos .img-1{
+        background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
+        ,url("/imagenes/HathaYoga.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 300px;
+        width: 50%;
+        border-radius: 10px;
+    }
+
+    #cursos .img-2{
+        background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
+        ,url("/imagenes/Kundalini Yoga.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 400px;
+        width: 50%;
+        border-radius: 10px;
+    }
+
+    #cursos .img-3{
+        background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
+        ,url("/imagenes/RestorativeYoga.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 400px;
+        width: 50%;
+        border-radius: 10px;
+    }
+
+    #cursos .img-4{
+        background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
+        ,url("/imagenes/Registros_Akashicos.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 400px;
+        width: 50%;
+        border-radius: 10px;
+    }
+
+    #cursos .img-5{
+        background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
+        ,url("/imagenes/Codigos_Solares.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 400px;
+        width: 50%;
+        border-radius: 10px;
+    }
+    #cursos .img-6{
+        background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
+        ,url("/imagenes/pendulo.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 400px;
+        width: 50%;
+        border-radius: 10px;
+    }
+    #cursos .img-7{
+        background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
+        ,url("/imagenes/Reiki01.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 400px;
+        width: 50%;
+        border-radius: 10px;
+    }
+    #cursos .img-8{
+        background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
+        ,url("/imagenes/Rito02.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 400px;
+        width: 50%;
+        border-radius: 10px;
+    }
+}
