@@ -1,0 +1,25 @@
+/*-------------- Footer -------------*/
+
+.contenedor_pie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.iconos{
+    font-size: 22px;
+    padding: 10px 10px;
+}
+
+.iconos > a{
+    color: black;
+}
+
+.iconos > a:hover{
+    color:rgb(201, 61, 171);
+}

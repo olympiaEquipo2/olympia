@@ -49,3 +49,22 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error:', error));
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var goTopButton = document.getElementById('go-top');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            goTopButton.classList.add('active');
+        } else {
+            goTopButton.classList.remove('active');
+        }
+    });
+
+    goTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
