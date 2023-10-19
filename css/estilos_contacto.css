@@ -1,20 +1,163 @@
-.formContainer{
-    grid-area: form;
-    border:blue 2px solid;
-}
-.imgContainer {
-    grid-area: yogaImg;
-    border:red solid 1px;
-    overflow: hidden;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+
+/*Importamos fuentes*/
+:root {
+    --color-barra-lateral: rgb(255, 255, 255);
+    --color-texto: rgb(0, 0, 0);
+    --color-texto-menu: rgb(51, 51, 51);
+    --color-boton: #CC6AD9;
+    --color-boton-texto: rgb(255, 255, 255);
+    --color-menu-hover: rgb(219, 218, 218);
+    --color-boton-hover: #e588f1;
+    --color-menu-hover-texto: rgb(0, 0, 0);
+    --color-linea: rgb(173, 173, 173);
+    --color-switch-base: rgb(201, 202, 206);
+    --color-switch-circulo: rgb(241, 241, 241);
+    --color-scroll: rgb(0, 0, 0);
+    --color-scroll-hover: rgb(134, 136, 144);
+    --color-boton-login: rgb(119, 119, 119);
 }
 
-#contacto {
-    display: grid;;
-    grid-template:  auto / 50% 50%;  
-    grid-template-areas:
-            "form yogaImg"
+.modo-oscuro-activado {
+    --color-barra-lateral: rgb(44, 45, 49);
+    --color-texto: rgb(255, 255, 255);
+    --color-texto-menu: rgb(194, 194, 194);
+    --color-boton: #CC6AD9;
+    --color-boton-texto: rgb(238, 238, 238);
+    --color-boton-hover: #e588f1;
+    --color-menu-hover: rgb(61, 61, 61);
+    --color-menu-hover-texto: rgb(0, 0, 0);
+    --color-linea: rgb(85, 84, 94);
+    --color-switch-base: rgb(39, 205, 64);
+    --color-switch-circulo: rgb(255, 255, 255);
+    --color-scroll: rgb(255, 255, 255);
+    --color-scroll-hover: rgb(134, 136, 144);
+    --color-boton-login: rgb(151, 151, 151);
+}
+
+/*Selector universal*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+  
+}
+#contacto{
+   
+    height: 100vh;
+    
+    
+}
+.formContainer{
+            
+            display: flex;
+            flex-direction: column;
+            justify-content:flex-start;
+            align-items: center;
+         
+
+           
             
     
 }
+.formContainer form {
+    width: 80%;
+    margin:5px;
+    max-width: 450px;
+   
+  
+    
+}
+
+.encabezadoFormContacto h1{
+    color: var(--color-boton);
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 2em;
+    padding:1em;
+    
+
+}
+.encabezadoFormContacto p {
+display:none;
+
+}
 
 
+
+
+.formContainer input {
+   
+    border: none;
+    border-bottom: var(--color-linea) 0.1em solid;
+    color: var(--color-linea);
+    width: 100%;
+    font-size: 1em;
+    padding: 5px 0px;
+    
+}
+
+.formContainer textarea{
+   border:none;
+   height:120px;
+        border-bottom: var(--color-linea) 0.1em solid;
+        color: var(--color-linea);
+        width: 100%;
+        font-size: 1em;
+        padding: 5px 0px;
+}
+
+.formContainer button{
+    color:var(--color-boton-texto);
+    width: 80%;
+    padding:10px;
+    font-size: 1em;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-boton);
+  display:block;
+  margin: 2em auto ;
+  cursor:pointer;
+   
+}
+.imgContainer{
+   display:none; 
+}
+@media (min-width: 500px) {
+    .encabezadoFormContacto p {
+            display: block;  
+            color:#e588f1;
+            font-size: 0.75em;
+            text-align: center;
+            padding-bottom:2em;
+        }
+}
+@media (min-width: 980px) {
+    #contacto{
+        display: flex;
+    }
+    .imgContainer {
+        display: inline;
+            width: 50%;
+        }
+    
+        .imgContainer img {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .formContainer{
+            width:50%;
+        }
+   
+                .formContainer button {
+                    width: 40%;
+}
+}
