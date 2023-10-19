@@ -90,28 +90,46 @@
         <script src="js/script.js"></script>
     <section id="contacto">
         <article class="formContainer">
-        <h2>Contacto</h2>
-        <form  action="https://formspree.io/f/mwkdaajv" method="POST" id="formContacto">
-
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            <p class="error" id="mensajeErrorNombre"></p>
-            
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required>
-            <p class="error"></p>
-
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" rows="4" required ></textarea>
-            <p class="error"></p>
-
-            <button type="submit" onclick="validarFormulario()">Enviar</button>
-            <p id="form-status"></p>
-        </form>
-        </article>
-        <article class="imgContainer">
-            <img src="./imagenes/Yoga01.jpg" alt="">
-        </article>
+            <div class="encabezadoFormContacto">
+              <h1>Escribinos</h1>
+              <p>
+                Culaquier duda o inquietud dejanos tu pregunta y a a brevedad te
+                responderemos.
+              </p>
+            </div>
+    
+            <form
+              action="https://formspree.io/f/mwkdaajv"
+              method="POST"
+              id="formContacto"
+            >
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                value= "Tu nombre"
+                required
+              />
+              <p class="error" id="mensajeErrorNombre"></p>
+    
+              <input type="email" id="email" name="email" value="Email" required />
+              <p class="error"></p>
+    
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                placeholder="Escribinos un mensaje"
+                required
+              ></textarea>
+              <p class="error"></p>
+    
+              <button type="submit" onclick="validarFormulario()">Enviar</button>
+              <p id="form-status"></p>
+            </form>
+          </article>
+          <article class="imgContainer">
+            <img src="./imagenes/Yoga02.jpg" alt="" />
+          </article>
     </section>
 
 
