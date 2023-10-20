@@ -3,7 +3,7 @@
 ### 1. Título y Descripción del Proyecto:
 
 ● Título: "Olympia: Yoga y terapias Holisticas"
-● Descripción: Desarrollo de un sitio web que ofrezca cursos de yoga y terapias Holisticas.
+● Descripción: Desarrollo de un sitio web que ofrezce cursos de yoga y terapias Holisticas.
 ● URL deploy:
 
 ### 2. Público Objetivo:
@@ -37,7 +37,15 @@
             --color-scroll-hover: rgb(134, 136, 144);
             --color-boton-login: rgb(119, 119, 119);
 
-● Tipografía: 'Playfair Display', serif;
+● Tipografía: 'Playfair Display', serif; fácil de leer y agrdable a la vista. 
+● Se busco respetar proporciones como así también se escogió una paleta de colores acorde a la temática y a la dinámica del sitio. 
+● Se respetaron los margenes y los elementos se ubicaron estratefiicamente dandole fluidez e impacto psitivo a cada sección. 
+● Se utilizó un logo simpe y fácil de recordar. 
+● Nos centramos en la coherencia de los elementos para determinar una correcta estética general, la simleza en las líneas y en las animaciones determian la cohesión con la temática abordada. 
+● Efecto Hover permite al usuario confirmar sobre que elemento se está posicionando. 
+● Menú hamburguesa, se diseño y se le aplico "Modo oscuro" determinando un estilo más actual, permitiendo una visualizacion centrada en el contenido de la sección, disminuyendo la fatiga visual, siendo además este un fenómeno de moda en el diseño de la interfaz de usuario.  
+
+
 
 ### 5. Contenido y Funcionalidades:
 
@@ -53,6 +61,7 @@ Ruth
 Juancho (representante)
 Leandro Yanson
 
+
 ### 7. Cronograma Tentativo:
 
 ● Diseño y planificación: 1 semanas
@@ -65,10 +74,12 @@ Leandro Yanson
 
 ### 9. Desarrollos Futuros y Mejoras Potenciales (Opcional)
 
-Poder inscribirte en las distintas clases y horarios y poder pagar a traves del sitio.
+Poder realizar la inscripción en las distintas clases y sus horarios con la posibilidad de pagar a traves del sitio. 
+
 
 ### 10. Contacto e Integrantes del Equipo:
 
 ### 11. Fecha de Entrega:
 
     ● 22 de Octubre de 2023.
+
