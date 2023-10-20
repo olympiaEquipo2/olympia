@@ -14,8 +14,10 @@
 
 ● Inicio
 ● Actividades
-○ Contacto
-● Nosotros.
+● Nosotros
+● Contacto
+● Regsitrate
+
 
 ### 4. Diseño y Estilo:
 
