@@ -21,6 +21,8 @@
 
 ### 4. Diseño y Estilo:
 
+● Buscamos que sea un diseño atractivo, pero minimalista y funcional acompañando la temáica. Ofrece una navegación sencilla.
+● Información de contacto sencilla, cara y fácil de ubicar.
 ● Estilo visual: Amigable, cálido y lleno de colores que transmitan paz y serenidad.
 ● Colores:
 
@@ -47,22 +49,21 @@
 ● Efecto Hover permite al usuario confirmar sobre que elemento se está posicionando. 
 ● Menú hamburguesa, se diseño y se le aplico "Modo oscuro" determinando un estilo más actual, permitiendo una visualizacion centrada en el contenido de la sección, disminuyendo la fatiga visual, siendo además este un fenómeno de moda en el diseño de la interfaz de usuario.  
 
-
-
 ### 5. Contenido y Funcionalidades:
 
 ● Contenido: Información detallada sobre los distintos cursos y terapias ofrecidas.
 ● Funcionalidades: Formulario de contacto para los que deseen contar con mas informacion.
+● Formulario de registro 
 
 ### 6. Integrantes del Equipo y Representante:
 
 ● Equipo:
 Romina Rodes
 Gregorio Nuñez
-Ruth
-Juancho (representante)
+Ruth Molina
+Juancho Echeluce (Representante)
 Leandro Yanson
-
+Maria Pia Roales
 
 ### 7. Cronograma Tentativo:
 
@@ -77,7 +78,6 @@ Leandro Yanson
 ### 9. Desarrollos Futuros y Mejoras Potenciales (Opcional)
 
 Poder realizar la inscripción en las distintas clases y sus horarios con la posibilidad de pagar a traves del sitio. 
-
 
 ### 10. Contacto e Integrantes del Equipo:
 
