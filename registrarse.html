@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="css/estilo_barra_lateral.css">
     <link rel="stylesheet" href="css/estilo_footer.css">
     <link rel="stylesheet" href="css/estilo_registro.css">
-    <title>Inicio</title>
+    <script src="https://kit.fontawesome.com/4c9feabc71.js" crossorigin="anonymous"></script>
+    <title>Registrate</title>
 </head>
 
 <body>
@@ -92,6 +93,7 @@
 
 <body>
     <main>
+    <!--
         <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
     <script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
     <script src="js/script.js"></script>
@@ -99,6 +101,56 @@
         <h1>Estamos Trabajando en la Página</h1>
         <p>Pronto podrás Registrate <br> para gestionar tus turnos y reservas</p>
     </div>
+    -->
+    <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
+        <script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
+        <script src="js/script.js"></script>
+    <section id="contacto">
+        <article class="formContainer">
+            <div class="encabezadoFormContacto">
+             
+            </div>
+    
+            <form  class="form">
+                <h2 class="form_title">Registrate</h2>
+                <p class="form_paragraph">Obtene un 15% de descuento en el primer mes</p>
+        
+                <div class="form_container">
+                    <div class="form_group">
+                        <label for="name" class="form_label">Nombre</label>
+                        <input type="text" id="name" class="form_input" placeholder=" ">
+                        <span class="form_line"></span>
+                    </div>
+        
+                    <div class="form_group">
+                        <label for="adress" class="form_label">Apellido</label>
+                        <input type="text" id="adress" class="form_input" placeholder=" ">
+                        <span class="form_line"></span>
+                    </div>
+        
+                    <div class="form_group">
+                        <label for="name" class="form_label">Email</label>
+                        <input type="text" id="email" class="form_input" placeholder=" ">
+                        <span class="form_line"></span>
+                    </div>
+        
+                    <div class="form_group">
+                        <label for="password" class="form_label">Password</label>
+                        <input type="text" id="password" class="form_input" placeholder="contraseña">
+                        
+                        <span class="form_line"></span>
+                    </div>
+        
+                    <p id="mensajeError" style="color: red;"></p>
+        
+        
+    
+              <button type="submit" onclick="validarFormulario()">Enviar</button>
+              <p id="form-status"></p>
+            </form>
+          </article>
+         
+    </section>
     <footer class="contenedor_pie">
         <div>
             <p>&copy; Olympia 2023</p>
