@@ -21,8 +21,8 @@
 
 ### 4. Diseño y Estilo:
 
-● Buscamos que sea un diseño atractivo, pero minimalista y funcional acompañando la temáica. Ofrece una navegación sencilla.
-● Información de contacto sencilla, cara y fácil de ubicar.
+● Buscamos que sea un diseño atractivo, pero minimalista y funcional acompañando la temática. Ofrece una navegación sencilla.
+● Información de contacto sencilla, clara y fácil de ubicar.
 ● Estilo visual: Amigable, cálido y lleno de colores que transmitan paz y serenidad.
 ● Colores:
 
@@ -41,18 +41,18 @@
             --color-scroll-hover: rgb(134, 136, 144);
             --color-boton-login: rgb(119, 119, 119);
 
-● Tipografía: 'Playfair Display', serif; fácil de leer y agrdable a la vista. 
-● Se busco respetar proporciones como así también se escogió una paleta de colores acorde a la temática y a la dinámica del sitio. 
-● Se respetaron los margenes y los elementos se ubicaron estratefiicamente dandole fluidez e impacto psitivo a cada sección. 
-● Se utilizó un logo simpe y fácil de recordar. 
-● Nos centramos en la coherencia de los elementos para determinar una correcta estética general, la simleza en las líneas y en las animaciones determian la cohesión con la temática abordada. 
+● Tipografía: 'Playfair Display', serif; fácil de leer y agradable a la vista. 
+● Se buscó respetar proporciones como así también se escogió una paleta de colores acorde a la temática y a la dinámica del sitio. 
+● Se respetaron los márgenes y los elementos se ubicaron estratégicamente dándole fluidez e impacto positivo a cada sección. 
+● Se utilizó un logo simple y fácil de recordar. 
+● Nos centramos en la coherencia de los elementos para determinar una correcta estética general, la simpleza en las líneas y en las animaciones determinan la cohesión con la temática abordada. 
 ● Efecto Hover permite al usuario confirmar sobre que elemento se está posicionando. 
-● Menú hamburguesa, se diseño y se le aplico "Modo oscuro" determinando un estilo más actual, permitiendo una visualizacion centrada en el contenido de la sección, disminuyendo la fatiga visual, siendo además este un fenómeno de moda en el diseño de la interfaz de usuario.  
+● Menú hamburguesa, se diseño y se le aplicó "Modo oscuro" determinando un estilo más actual, permitiendo una visualizacion centrada en el contenido de la sección, disminuyendo la fatiga visual, siendo además este un fenómeno de moda en el diseño de la interfaz de usuario.  
 
 ### 5. Contenido y Funcionalidades:
 
 ● Contenido: Información detallada sobre los distintos cursos y terapias ofrecidas.
-● Funcionalidades: Formulario de contacto para los que deseen contar con mas informacion.
+● Funcionalidades: Formulario de contacto para los que deseen contar con más información.
 ● Formulario de registro 
 
 ### 6. Integrantes del Equipo y Representante:
