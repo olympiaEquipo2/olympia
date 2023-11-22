@@ -6,7 +6,7 @@
     flex-direction: column;
     height: 50vh;
     background-image: linear-gradient(0deg, rgba(0,0,0,0.5),  rgba(0,0,0,0.5)) 
-                    ,url("/imagenes/Yoga02.jpg");
+                    ,url("/static/imagenes/Yoga02.jpg");
     color: white;
     background-position: center center;
     margin-top: 0;
@@ -116,7 +116,7 @@ h3 {
 
     #cursos .img-1{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-        ,url("/imagenes/HathaYoga.jpg");
+        ,url("/static/imagenes/HathaYoga.jpg");
         background-size: cover;
         background-position: center center;
         height: 300px;
@@ -126,7 +126,7 @@ h3 {
 
     #cursos .img-2{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-        ,url("/imagenes/Kundalini Yoga.jpg");
+        ,url("/static/imagenes/Kundalini Yoga.jpg");
         background-size: cover;
         background-position: center center;
         height: 400px;
@@ -136,7 +136,7 @@ h3 {
 
     #cursos .img-3{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-        ,url("/imagenes/RestorativeYoga.jpg");
+        ,url("/static/imagenes/RestorativeYoga.jpg");
         background-size: cover;
         background-position: center center;
         height: 400px;
@@ -146,7 +146,7 @@ h3 {
 
     #cursos .img-4{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-        ,url("/imagenes/Registros_Akashicos.jpg");
+        ,url("/static/imagenes/Registros_Akashicos.jpg");
         background-size: cover;
         background-position: center center;
         height: 400px;
@@ -156,7 +156,7 @@ h3 {
 
     #cursos .img-5{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-        ,url("/imagenes/Codigos_Solares.jpg");
+        ,url("/static/imagenes/Codigos_Solares.jpg");
         background-size: cover;
         background-position: center center;
         height: 400px;
@@ -165,7 +165,7 @@ h3 {
     }
     #cursos .img-6{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-        ,url("/imagenes/pendulo.jpg");
+        ,url("/static/imagenes/pendulo.jpg");
         background-size: cover;
         background-position: center center;
         height: 400px;
@@ -174,7 +174,7 @@ h3 {
     }
     #cursos .img-7{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-        ,url("/imagenes/Reiki01.jpg");
+        ,url("/static/imagenes/Reiki01.jpg");
         background-size: cover;
         background-position: center center;
         height: 400px;
@@ -183,7 +183,7 @@ h3 {
     }
     #cursos .img-8{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-        ,url("/imagenes/Rito02.jpg");
+        ,url("/static/imagenes/Rito02.jpg");
         background-size: cover;
         background-position: center center;
         height: 400px;

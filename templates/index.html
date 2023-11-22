@@ -9,9 +9,10 @@
         href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&family=Ubuntu:ital,wght@0,300;0,700;1,300;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/estilos_index.css">
-    <link rel="stylesheet" href="css/estilo_barra_lateral.css">
-    <link rel="stylesheet" href="css/estilo_footer.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos_index.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo_barra_lateral.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo_footer.css') }}">
+
     <title>Inicio</title>
 </head>
 
@@ -25,7 +26,7 @@
             <div class="barra-lateral-activar">
                 <div class="nombre-pagina barra-lateral-activar">
                     <ion-icon name="menu-outline" class="barra-lateral-activar"></ion-icon>
-                    <span><a href="index.html"><img src="imagenes/logo.png" alt="" width="20px" height="60px"></a></span>
+                    <span><a href="index.html"><img src="{{ url_for('static', filename='/imagenes/Logo.png') }}" alt="" width="20px" height="60px"></a></span>
                 </div>
                 <button class="boton-ingresar" onclick="window.location.href='registrarse.html'">
                     <ion-icon name="log-in-outline"></ion-icon>

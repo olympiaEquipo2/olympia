@@ -51,10 +51,7 @@ Romina Rodes
 Gregorio Nuñez
 Ruth
 Juancho (representante)
-<<<<<<< HEAD
-=======
 Leandro Yanson
->>>>>>> 5519f6ead0a4432570d0701de8701da3594f3ac0
 
 ### 7. Cronograma Tentativo:
 
