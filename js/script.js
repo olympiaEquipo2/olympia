@@ -34,22 +34,6 @@ activacionBarra.addEventListener("click",(event)=>{
     });
 }})
 
-
-/* API CLIMA */
-
-document.addEventListener('DOMContentLoaded', function () {
-    const url = 'https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=512f8345dd32fc32c65d9e4a182c6806'; // Reemplaza esto con la URL de la API que deseas usar
-
-    fetch(url)
-        .then(response => response.json()) // Convierte la respuesta a formato JSON
-        .then(data => {
-            // Manipula los datos y muéstralos en la página
-            const datosApiDiv = document.getElementById('datos-api');
-            datosApiDiv.innerHTML = `Nombre: ${data.name}, Edad: ${data.age}`;
-        })
-        .catch(error => console.error('Error:', error));
-});
-
 document.addEventListener('DOMContentLoaded', function() {
     var goTopButton = document.getElementById('go-top');
 

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/estilos_index.css">
     <link rel="stylesheet" href="css/estilo_barra_lateral.css">
     <link rel="stylesheet" href="css/estilo_footer.css">
+    <link rel="stylesheet" href="css/fuentesycolores.css">
     <script src="https://kit.fontawesome.com/4c9feabc71.js" crossorigin="anonymous"></script>
     <title>Contáctanos</title>
 </head>
@@ -93,8 +94,7 @@
             <div class="encabezadoFormContacto">
               <h1>Escribinos</h1>
               <p>
-                Culaquier duda o inquietud dejanos tu pregunta y a a brevedad te
-                responderemos.
+                ¡Déjanos tu duda o inquietud y te responderemos a la brevedad!
               </p>
             </div>
     
@@ -103,18 +103,16 @@
               method="POST"
               id="formContacto"
             >
-              <input
+            <input
                 type="text"
                 id="nombre"
                 name="nombre"
-                value= "Tu nombre"
+                placeholder= "Nombre y apellido"
                 required
               />
               <p class="error" id="mensajeErrorNombre"></p>
-    
-              <input type="email" id="email" name="email" value="Email" required />
+              <input type="email" id="email" name="email" placeholder="Correo electrónico" required />
               <p class="error"></p>
-    
               <textarea
                 id="mensaje"
                 name="mensaje"
@@ -128,7 +126,7 @@
             </form>
           </article>
           <article class="imgContainer">
-            <img src="./imagenes/Yoga02.jpg" alt="" />
+            <img src="./imagenes/Yoga01.jpg" alt="" />
           </article>
     </section>
 
