@@ -1,3 +1,4 @@
+/*
 .container {
         max-width: 600px;
         padding: 20px;
@@ -16,4 +17,59 @@ h1 {
 p {
     font-size: 1.2em;
     color: #555;
+}
+*/
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.form{
+    background-color: white;
+    margin: auto ;
+    width: 90%;
+    max-width: 400px;
+    padding: 4.5em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 /30%);
+    text-align: center;
+    margin-left: 400px;
+}
+
+.form_title{
+    font-size: 50px;
+    color: #f336e7;
+    margin-bottom: 15px;
+}
+
+.form_paragraph{
+    font-size: 18px;
+    color: #bb47b3;
+    margin-bottom: 15px;
+}
+
+.form_container{
+
+    margin: 10px;
+    display: grid;
+    gap: 2.5em;
+}
+
+.form_input{
+    width: 100%;
+    padding: 12px 6px;
+    border-radius: 5px;
+    background-color: #ecd5eb;
+    
+}
+
+.form_submit{
+    background-color: #d64bcd;
+    color: white;
+    padding: 10px 0;
+    border-radius: 5px;
 }

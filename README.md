@@ -3,7 +3,7 @@
 ### 1. Título y Descripción del Proyecto:
 
 ● Título: "Olympia: Yoga y terapias Holisticas"
-● Descripción: Desarrollo de un sitio web que ofrezca cursos de yoga y terapias Holisticas.
+● Descripción: Desarrollo de un sitio web que ofrezce cursos de yoga y terapias Holisticas.
 ● URL deploy:
 
 ### 2. Público Objetivo:
@@ -14,11 +14,15 @@
 
 ● Inicio
 ● Actividades
-○ Contacto
-● Nosotros.
+● Nosotros
+● Contacto
+● Regsitrate
+
 
 ### 4. Diseño y Estilo:
 
+● Buscamos que sea un diseño atractivo, pero minimalista y funcional acompañando la temática. Ofrece una navegación sencilla.
+● Información de contacto sencilla, clara y fácil de ubicar.
 ● Estilo visual: Amigable, cálido y lleno de colores que transmitan paz y serenidad.
 ● Colores:
 
@@ -37,21 +41,29 @@
             --color-scroll-hover: rgb(134, 136, 144);
             --color-boton-login: rgb(119, 119, 119);
 
-● Tipografía: 'Playfair Display', serif;
+● Tipografía: 'Playfair Display', serif; fácil de leer y agradable a la vista. 
+● Se buscó respetar proporciones como así también se escogió una paleta de colores acorde a la temática y a la dinámica del sitio. 
+● Se respetaron los márgenes y los elementos se ubicaron estratégicamente dándole fluidez e impacto positivo a cada sección. 
+● Se utilizó un logo simple y fácil de recordar. 
+● Nos centramos en la coherencia de los elementos para determinar una correcta estética general, la simpleza en las líneas y en las animaciones determinan la cohesión con la temática abordada. 
+● Efecto Hover permite al usuario confirmar sobre que elemento se está posicionando. 
+● Menú hamburguesa, se diseño y se le aplicó "Modo oscuro" determinando un estilo más actual, permitiendo una visualizacion centrada en el contenido de la sección, disminuyendo la fatiga visual, siendo además este un fenómeno de moda en el diseño de la interfaz de usuario.  
 
 ### 5. Contenido y Funcionalidades:
 
 ● Contenido: Información detallada sobre los distintos cursos y terapias ofrecidas.
-● Funcionalidades: Formulario de contacto para los que deseen contar con mas informacion.
+● Funcionalidades: Formulario de contacto para los que deseen contar con más información.
+● Formulario de registro 
 
 ### 6. Integrantes del Equipo y Representante:
 
 ● Equipo:
 Romina Rodes
 Gregorio Nuñez
-Ruth
-Juancho (representante)
+Ruth Molina
+Juancho Echeluce (Representante)
 Leandro Yanson
+Maria Pia Roales
 
 ### 7. Cronograma Tentativo:
 
@@ -65,10 +77,11 @@ Leandro Yanson
 
 ### 9. Desarrollos Futuros y Mejoras Potenciales (Opcional)
 
-Poder inscribirte en las distintas clases y horarios y poder pagar a traves del sitio.
+Poder realizar la inscripción en las distintas clases y sus horarios con la posibilidad de pagar a traves del sitio. 
 
 ### 10. Contacto e Integrantes del Equipo:
 
 ### 11. Fecha de Entrega:
 
     ● 22 de Octubre de 2023.
+
