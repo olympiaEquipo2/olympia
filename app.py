@@ -135,13 +135,13 @@ def nosotros():
 def contacto():
     return render_template("contacto.html")
 
-@app.route("/registrase", methods=["GET"])      
+@app.route("/registrarse", methods=["GET"])      
 def registrarse():
-    return render_template("registrase.html")
+    return render_template("registrarse.html")
 
 #usuario = Usuario(host='localhost', user='root', password='', database='olympia')
 
 #--------------------------------------------------------------------
-#if __name__ == "__main__":
-#    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
 #--------------------------------------------------------------------
