@@ -6,11 +6,7 @@
     flex-direction: column;
     height: 50vh;
     background-image: linear-gradient(0deg, rgba(0,0,0,0.5),  rgba(0,0,0,0.5)) 
-<<<<<<< HEAD:static/css/estilos_index.css
                     ,url("/static/imagenes/Yoga02.jpg");
-=======
-                    ,url("../imagenes/Yoga02.jpg");
->>>>>>> c158b884f3da0eb82dfff40f9d52785ae97ae2b0:css/estilos_index.css
     color: white;
     background-position: center center;
     margin-top: 0;
@@ -122,11 +118,7 @@ h3 {
 
     #cursos .img-1{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-<<<<<<< HEAD:static/css/estilos_index.css
         ,url("/static/imagenes/HathaYoga.jpg");
-=======
-        ,url("../imagenes/HathaYoga.jpg");
->>>>>>> c158b884f3da0eb82dfff40f9d52785ae97ae2b0:css/estilos_index.css
         background-size: cover;
         background-position: center center;
         height: 300px;
@@ -136,11 +128,7 @@ h3 {
 
     #cursos .img-2{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-<<<<<<< HEAD:static/css/estilos_index.css
         ,url("/static/imagenes/Kundalini Yoga.jpg");
-=======
-        ,url("../imagenes/Kundalini Yoga.jpg");
->>>>>>> c158b884f3da0eb82dfff40f9d52785ae97ae2b0:css/estilos_index.css
         background-size: cover;
         background-position: center center;
         height: 400px;
@@ -150,11 +138,7 @@ h3 {
 
     #cursos .img-3{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-<<<<<<< HEAD:static/css/estilos_index.css
         ,url("/static/imagenes/RestorativeYoga.jpg");
-=======
-        ,url("../imagenes/RestorativeYoga.jpg");
->>>>>>> c158b884f3da0eb82dfff40f9d52785ae97ae2b0:css/estilos_index.css
         background-size: cover;
         background-position: center center;
         height: 400px;
@@ -164,11 +148,7 @@ h3 {
 
     #cursos .img-4{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-<<<<<<< HEAD:static/css/estilos_index.css
         ,url("/static/imagenes/Registros_Akashicos.jpg");
-=======
-        ,url("../imagenes/Registros_Akashicos.jpg");
->>>>>>> c158b884f3da0eb82dfff40f9d52785ae97ae2b0:css/estilos_index.css
         background-size: cover;
         background-position: center center;
         height: 400px;
@@ -178,11 +158,7 @@ h3 {
 
     #cursos .img-5{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-<<<<<<< HEAD:static/css/estilos_index.css
         ,url("/static/imagenes/Codigos_Solares.jpg");
-=======
-        ,url("../imagenes/Codigos_Solares.jpg");
->>>>>>> c158b884f3da0eb82dfff40f9d52785ae97ae2b0:css/estilos_index.css
         background-size: cover;
         background-position: center center;
         height: 400px;
@@ -191,11 +167,7 @@ h3 {
     }
     #cursos .img-6{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-<<<<<<< HEAD:static/css/estilos_index.css
         ,url("/static/imagenes/pendulo.jpg");
-=======
-        ,url("../imagenes/pendulo.jpg");
->>>>>>> c158b884f3da0eb82dfff40f9d52785ae97ae2b0:css/estilos_index.css
         background-size: cover;
         background-position: center center;
         height: 400px;
@@ -204,11 +176,7 @@ h3 {
     }
     #cursos .img-7{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-<<<<<<< HEAD:static/css/estilos_index.css
         ,url("/static/imagenes/Reiki01.jpg");
-=======
-        ,url("../imagenes/Reiki01.jpg");
->>>>>>> c158b884f3da0eb82dfff40f9d52785ae97ae2b0:css/estilos_index.css
         background-size: cover;
         background-position: center center;
         height: 400px;
@@ -217,11 +185,7 @@ h3 {
     }
     #cursos .img-8{
         background-image: linear-gradient(0deg, rgba(0,0,0,0.1  ),  rgba(0,0,0,0.1)) 
-<<<<<<< HEAD:static/css/estilos_index.css
         ,url("/static/imagenes/Rito02.jpg");
-=======
-        ,url("../imagenes/Rito02.jpg");
->>>>>>> c158b884f3da0eb82dfff40f9d52785ae97ae2b0:css/estilos_index.css
         background-size: cover;
         background-position: center center;
         height: 400px;

@@ -1,94 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estilos_contacto.css">
-    <link rel="shortcut icon" href="/imagenes/minilogo.png" type="image/x-icon">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&family=Ubuntu:ital,wght@0,300;0,700;1,300;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/estilos_index.css">
-    <link rel="stylesheet" href="css/estilo_barra_lateral.css">
-    <link rel="stylesheet" href="css/estilo_footer.css">
-    <link rel="stylesheet" href="css/fuentesycolores.css">
-    <script src="https://kit.fontawesome.com/4c9feabc71.js" crossorigin="anonymous"></script>
-    <title>Contáctanos</title>
-</head>
+{% extends 'index.html' %}
 
+ {% block title %} <title>Contacto</title>{% endblock %}
 <body>
-    <header>
-        <div class="menu">
-            <ion-icon name="menu-outline"></ion-icon>
-            <ion-icon name="close-outline"></ion-icon>
-        </div>
-        <div class="barra-lateral barra-lateral-activar" id="barra-lateral-activar">
-            <div class="barra-lateral-activar">
-                <div class="nombre-pagina barra-lateral-activar">
-                    <ion-icon name="menu-outline" class="barra-lateral-activar"></ion-icon>
-                    <span><a href="index.html"><img src="/imagenes/logo.png" alt="" width="20px" height="60px"></a></span>
-                </div>
-                <button class="boton-ingresar" onclick="window.location.href='registrarse.html'">
-                    <ion-icon name="log-in-outline"></ion-icon>
-                    <span>Ingresar</span>
-                </button>
-            </div>
-                <nav class="navegacion">
-                    <ul>
-                        <li>
-                            <a href="index.html" >
-                                <ion-icon name="home-outline"></ion-icon>
-                                <span>Inicio</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="actividades.html">
-                                <ion-icon name="library-outline"></ion-icon>
-                                <span>Actividades</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="nosotros.html">
-                                <ion-icon name="help-outline"></ion-icon>
-                                <span>Nosotros</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="contacto.html" class="activo">
-                                <ion-icon name="mail-outline"></ion-icon>
-                                <span>Contacto</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="registrarse.html">
-                                <ion-icon name="add-outline"></ion-icon>
-                                <span>Registrate</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            <div>
-                <div class="linea"></div>
-            <div class="modo-oscuro">
-                <div class="info">
-                    <ion-icon name="moon-outline"></ion-icon>
-                    <span>Modo Oscuro</span>
-                </div>
-                <div class="switch">
-                    <div class="base">
-                        <div class="circulo">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-    </header>
+    
     <main>
-        <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
-        <script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
-        <script src="js/script.js"></script>
+            {% block content %} 
     <section id="contacto">
         <article class="formContainer">
             <div class="encabezadoFormContacto">
@@ -126,27 +42,19 @@
             </form>
           </article>
           <article class="imgContainer">
-            <img src="/imagenes/Yoga01.jpg" alt="" />
+            <img src="{{ url_for('static', filename='imagenes/Yoga01.jpg') }}"alt="" />
           </article>
     </section>
-
-
-    <footer class="contenedor_pie">
-        <div>
-            <p>&copy; Olympia 2023</p>
-        </div>
-        <div class="iconos">
-            <a href="https://www.facebook.com/OlympiaCentroHolistico"><i class="fab fa-facebook" title="Facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram" title="instagram"></i></a>
-            <a href="#"><i class="fab fa-whatsapp" title="whatsapp"></i></a>
-            <a href="#"><i class="fas fa-envelope" title="Correo Electronico"></i></a>
-        </div>
-    </footer>
-
-
+     
+    
+        {% endblock %}   
 <script src="./js/formspreeContacto.js"></script>
 <script src="./js/validacionContacto.js"></script>
 </main>
 </body>
 
 </html>
+
+
+
+
