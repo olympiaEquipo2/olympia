@@ -8,12 +8,14 @@ from werkzeug.utils import secure_filename
 import os
 import time
 import jinja2
+from flask_bcrypt import Bcrypt, generate_password_hash, check_password_hash
+
 
 
 
 #--------------------------------------------------------------------
 app = Flask(__name__, static_url_path='/static')
-
+bcrypt = Bcrypt(app)
 
 CORS(app) # Esto habilitará CORS para todas las rutas
 #--------------------------------------------------------------------
@@ -76,9 +78,10 @@ class Usuario:
         usuario_existe = self.cursor.fetchone()
         if usuario_existe:
             return 'Usuario ya registrado'
+        contraseña_segura = generate_password_hash(contraseña).decode('utf-8')
 
         sql = "INSERT INTO usuarios (nombre_completo,apellido,correo_electrónico,contraseña) VALUES (%s, %s, %s, %s)"
-        valores = (nombre,apellido,email,contraseña)
+        valores = (nombre,apellido,email,contraseña_segura)
         
         try:
             self.cursor.execute(sql, valores)
@@ -147,11 +150,12 @@ usuario = Usuario(host='localhost', user='root', password='', database='olympia'
 
 #----------------PRUEBAS---------------------------------------------4
 
-#print(usuario.mostrar_usuario(1))
+
+
 #print(usuario.registrarse("miguel", "vincent", "mmppppp@h.com", 1234566666))
 
 
 # # #--------------------------------------------------------------------
-if __name__ == "__main__":
-        app.run(debug=True)
+# if __name__ == "__main__":
+#         app.run(debug=True)
 # # #--------------------------------------------------------------------
