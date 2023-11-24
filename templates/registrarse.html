@@ -28,7 +28,7 @@
                         <div class="form_group">
                             <input type="text" id="email" name="email" class="form_input" placeholder="Correo electrónico">
                             <span class="form_line"></span>
-                            <p id="mensajeError" style="color: red;">{{errores}}</p>
+                            <p id="mensajeErrorPy" style="color: red;">{{errores}}</p>
                         </div>
         
                         <div class="form_group">
@@ -52,39 +52,11 @@
                 <div class="degradado"></div>
             </article>
         </section>
-
-        {% endblock %}
     <script src="static/js/validacionContacto.js"></script>
     <script src="static/js/formspreeRegistro.js"></script>
-    <script>
-            let nombre = document.getElementById("nombre");
-    let email = document.getElementById('email');
-    let mensaje = document.getElementById('mensaje');
-     
-if(nombre.value == ""){
- alert('Por favor escriba su nombre entre 2 y 50 caracteres');
- nombre.focus();
- return
-}else if(nombre.value.length<2 || nombre.value.length>50){
-    alert('Por favor el nombre debe tener entre 2 y 50 letras')
-    nombre.focus();
-    return
-}
+        {% endblock %}
 
 
-if(!email.value.includes('@') || !email.value.includes('.') || email.value==''){
-    alert('Ingrese un correo electronico valido');
-    email.focus();
-    return
-}
-
-if(mensaje.value.length == ''){
-   alert('Por favor escriba un mensaje')
-}
-
-    </script>
-  
-    
     </main>
 </body>
 

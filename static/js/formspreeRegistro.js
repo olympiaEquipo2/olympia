@@ -28,11 +28,11 @@ const form = document.getElementById('registroForm');
 const mensajeError = document.getElementById('mensajeError');
 
 // Agregar un evento al formulario cuando se envíe
- console.log('soy formspree')
+
 form.addEventListener('submit', function (event) {
     // Prevenir el comportamiento predeterminado de envío del formulario
     event.preventDefault();
-    console.log('soy formspree')
+    
     // Obtener los valores de las contraseñas desde los campos de contraseña
     const password1 = document.getElementById('password1').value;
     const password2 = document.getElementById('password2').value;
@@ -42,9 +42,9 @@ form.addEventListener('submit', function (event) {
         // Mostrar un mensaje de error si las contraseñas no coinciden
         mensajeError.textContent = 'Las contraseñas no coinciden';
     } else {
-        // Las contraseñas coinciden, proceder a enviar el formulario
+        // Las contraseñas coinciden y las demas validaciones estan bien, proceder a enviar el formulario
         if(validarRegistro()){
-            return True
+            return this.submit()
         }
         
     }
@@ -80,6 +80,42 @@ form.addEventListener('submit', function (event) {
     }
 });
 */
+function validarRegistro(){
+    let nombre = document.getElementById("nombre");
+    let apellido = document.getElementById("apellido");
+    let email = document.getElementById('email');
+    if(nombre.value == ""){
+        alert('Por favor escriba su nombre entre 2 y 50 caracteres');
+        nombre.focus();
+        return false
+    }else if(nombre.value.length<2 || nombre.value.length>50){
+        alert('Por favor el nombre debe tener entre 2 y 50 letras')
+        nombre.focus();
+        return false
+        }
+
+    if(apellido.value == ""){
+        alert('Por favor escriba su/s apellido/s entre 2 y 50 caracteres');
+        nombre.focus();
+        return false
+    }else if(apellido.value.length<2 || apellido.value.length>50){
+        alert('Por favor el nombre debe tener entre 2 y 50 letras')
+        nombre.focus();
+        return false
+    }
+
+
+    if(!email.value.includes('@') || !email.value.includes('.') || email.value==''){
+        alert('Ingrese un correo electronico valido');
+        email.focus();
+        return false
+    }
+
+
+
+    return true
+}
+
 function mostrarContrasena() {
     // Obtener los elementos de los campos de contraseña
     var passwordInput1 = document.getElementById("password1");
