@@ -1,16 +1,14 @@
 #--------------------------------------------------------------------
 import mysql.connector
-from flask import Flask, request, jsonify, render_template, request, redirect, url_for, session
-from flask import request
+from flask import Flask, request, jsonify, render_template, redirect, url_for, session
+
 from flask_cors import CORS
 import mysql.connector
 from werkzeug.utils import secure_filename
 import os
 import time
 import jinja2
-#--------------------------------------------------------------------
-from datetime import date
-#--------------------------------------------------------------------
+
 
 
 #--------------------------------------------------------------------
@@ -85,8 +83,21 @@ class Usuario:
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return True
+    
 
 
+def validar_usuario_login(self, email, contraseña):
+    self.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electrónico = '{email}'")
+    usuario_existe = self.cursor.fetchone()
+    if not usuario_existe:
+        return False
+    else:
+        if usuario_existe['contraseña'] == contraseña:
+            session['usuario'] = usuario_existe
+            return True
+        else: 
+            return False
+        
 #----------------------------------------------------------------
 @app.route("/", methods=["GET"])
 def index():
@@ -108,20 +119,24 @@ def contacto():
 def registrarse():
     return render_template("registrarse.html")
 
+@app.route("/login", methods=["POST", "GET"])
+def login():
+    return render_template("login.html")
+
 usuario = Usuario(host='localhost', user='root', password='', database='olympia')
 
 
 #----------------PRUEBAS---------------------------------------------4
 
-print(usuario.mostrar_usuario(1))
-print(usuario.registrarse("miguel", "vincent", "mm@h.com", 1234566666))
+#print(usuario.mostrar_usuario(1))
+print(usuario.registrarse("miguel", "vincent", "mmppppp@h.com", 1234566666))
 
 
 
 
 
 
-#--------------------------------------------------------------------
+# #--------------------------------------------------------------------
 # if __name__ == "__main__":
 #         app.run(debug=True)
-#--------------------------------------------------------------------
+# #--------------------------------------------------------------------
