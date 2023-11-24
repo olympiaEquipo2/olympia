@@ -75,14 +75,18 @@ class Usuario:
         self.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electrónico = '{email}'")
         usuario_existe = self.cursor.fetchone()
         if usuario_existe:
-            return False
+            return 'Usuario ya registrado'
 
         sql = "INSERT INTO usuarios (nombre_completo,apellido,correo_electrónico,contraseña) VALUES (%s, %s, %s, %s)"
         valores = (nombre,apellido,email,contraseña)
-
-        self.cursor.execute(sql, valores)
-        self.conn.commit()
-        return True
+        
+        try:
+            self.cursor.execute(sql, valores)
+            self.conn.commit()
+            return "Usuario registrado con exito"
+        except mysql.connector.Error as err:
+            print(f"Error al registrar usuario: {err}")
+            return "Error al registrar usuario"
     
 
 
@@ -115,11 +119,26 @@ def nosotros():
 def contacto():
     return render_template("contacto.html")
 
-@app.route("/registrarse", methods=["GET"])
+@app.route("/registrarse", methods=["GET", "POST"])
 def registrarse():
-    return render_template("registrarse.html")
+    if request.method == "POST":
+        nombre = request.form['nombre']
+        apellido = request.form['apellido']
+        email = request.form['email']
+        contraseña = request.form['password1']
 
-@app.route("/login", methods=["POST", "GET"])
+        resultado_registro = usuario.registrarse( nombre, apellido, email, contraseña)
+
+        if resultado_registro == "Usuario registrado con exito":
+            #return render_template('login.html')
+            return redirect(url_for('login'))
+        else: 
+            print('no se pudo registrar el usuario')
+            return render_template('registrarse.html', errores=resultado_registro)
+        
+    return render_template('registrarse.html')
+
+@app.route("/login", methods=["POST", "GET"] )
 def login():
     return render_template("login.html")
 
@@ -129,14 +148,14 @@ usuario = Usuario(host='localhost', user='root', password='', database='olympia'
 #----------------PRUEBAS---------------------------------------------4
 
 #print(usuario.mostrar_usuario(1))
-print(usuario.registrarse("miguel", "vincent", "mmppppp@h.com", 1234566666))
+#print(usuario.registrarse("miguel", "vincent", "mmppppp@h.com", 1234566666))
 
 
 
 
 
 
-# #--------------------------------------------------------------------
-if __name__ == "__main__":
-    app.run(debug=True)
-# #--------------------------------------------------------------------
+# # #--------------------------------------------------------------------
+#if __name__ == "__main__":
+#        app.run(debug=True)
+# # #--------------------------------------------------------------------

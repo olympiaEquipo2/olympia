@@ -1,4 +1,4 @@
-
+console.log("script validar regitro")
 
 function validarFormulario(){
 

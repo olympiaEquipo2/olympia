@@ -20,32 +20,32 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='css/estilos_index.css') }}"
+      href="/static/css/estilos_index.css"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='css/estilo_barra_lateral.css') }}"
+      href="static/css/estilo_barra_lateral.css"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='css/estilo_footer.css') }}"
+      href="/static/css/estilo_footer.css"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='css/fuentesycolores.css') }}"
+      href="static/css/fuentesycolores.css"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='css/estilo_registro.css') }}"
+      href="static/css/estilo_registro.css"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='css/estilos_contacto.css') }}"
+      href="static/css/estilos_contacto.css"
     />
     {% block title %}
     <title>Inicio</title>
@@ -73,7 +73,7 @@
             <span
               ><a href="/"
                 ><img
-                  src="{{ url_for('static', filename='/imagenes/Logo.png') }}"
+                  src="static/imagenes/Logo.png"
                   alt=""
                   width="20px"
                   height="60px" /></a
@@ -149,7 +149,7 @@
         nomodule
         src="https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js"
       ></script>
-      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+      <script src="static/js/script.js"></script>
       {% endblock %} {% block content %}
       <section id="imagen_portada">
         <div class="saludo">

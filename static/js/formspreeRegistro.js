@@ -28,10 +28,11 @@ const form = document.getElementById('registroForm');
 const mensajeError = document.getElementById('mensajeError');
 
 // Agregar un evento al formulario cuando se envíe
+ console.log('soy formspree')
 form.addEventListener('submit', function (event) {
     // Prevenir el comportamiento predeterminado de envío del formulario
     event.preventDefault();
-
+    console.log('soy formspree')
     // Obtener los valores de las contraseñas desde los campos de contraseña
     const password1 = document.getElementById('password1').value;
     const password2 = document.getElementById('password2').value;
@@ -42,7 +43,13 @@ form.addEventListener('submit', function (event) {
         mensajeError.textContent = 'Las contraseñas no coinciden';
     } else {
         // Las contraseñas coinciden, proceder a enviar el formulario
-
+        if(validarRegistro()){
+            return True
+        }
+        
+    }
+})
+/*          
         // Obtener el elemento para mostrar el estado del formulario
         const status = document.getElementById('form-status');
 
@@ -51,8 +58,9 @@ form.addEventListener('submit', function (event) {
 
         // URL proporcionada por Formspree para enviar el formulario
         const url = 'https://formspree.io/f/mwkdaajv';
-
+    
         // Enviar el formulario utilizando la función fetch
+        
         fetch(url, {
             method: 'POST',
             body: formData,
@@ -71,7 +79,7 @@ form.addEventListener('submit', function (event) {
         });
     }
 });
-
+*/
 function mostrarContrasena() {
     // Obtener los elementos de los campos de contraseña
     var passwordInput1 = document.getElementById("password1");

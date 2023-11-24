@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+ {% block title %} <title>Registrate</title>{% endblock %}
+
+<body>
+
+    <main>
+        
+        {% block content %}
+  <section id="contacto">
+            <article class="formContainer">
+                <form method="POST" class="form" id="loginForm" >
+                    <div class="form_title">
+                        <h1 >Login</h1>
+                        <p>Bienvenido!</p>
+                    </div>
+                    <div class="form_container">
+        
+                        <div class="form_group">
+                            <input type="text" id="email" name="email" class="form_input" placeholder="Correo electrónico">
+                            <span class="form_line"></span>
+                            <p id="mensajeError" style="color: red;">{{resultado}}</p>
+                        </div>
+        
+                        <div class="form_group">
+                            <input type="password" id="password1" name="password1" class="form_input" placeholder="Contraseña">
+                            <span class="form_line"></span>
+                        </div>
+
+                    <p id="mensajeError" style="color: red;"></p>
+                    <button class="enviar" type="submit" onclick="validarRegistro()">Enviar</button>
+                    <p id="form-status"></p>
+                    </div>
+                </form>        
+            </article>
+            <article class="imgContainer">
+                <img src="{{ url_for('static', filename='imagenes/Yoga02.jpg') }}" alt="" />
+                <div class="degradado"></div>
+            </article>
+        </section>
+
+        {% endblock %}
+    <script src="{{ url_for('static', filename='js/formspreeRegistro.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/validacionRegistro.js') }}"></script>
+    </main>
+</body>
+
+</html>
