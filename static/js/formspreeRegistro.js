@@ -84,6 +84,8 @@ function validarRegistro(){
     let nombre = document.getElementById("nombre");
     let apellido = document.getElementById("apellido");
     let email = document.getElementById('email');
+    let passwordInput1 = document.getElementById("password1");
+    
     if(nombre.value == ""){
         alert('Por favor escriba su nombre entre 2 y 50 caracteres');
         nombre.focus();
@@ -111,7 +113,16 @@ function validarRegistro(){
         return false
     }
 
+    if(passwordInput1.value.length<8 ){
+        alert('La contraseña debe tener al menos 8 caracteres');
+        passwordInput1.focus();
+        return false;
+    }else if (!/[A-Z]/.test(passwordInput1.value) || !/[a-z]/.test(passwordInput1.value) || !/\d/.test(passwordInput1.value)) {
+    alert('La contraseña debe incluir al menos una letra mayúscula, una letra minúscula y un número.');
+     passwordInput1.focus();
+        return false;
 
+}
 
     return true
 }

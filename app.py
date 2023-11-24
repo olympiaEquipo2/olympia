@@ -151,10 +151,7 @@ usuario = Usuario(host='localhost', user='root', password='', database='olympia'
 #print(usuario.registrarse("miguel", "vincent", "mmppppp@h.com", 1234566666))
 
 
-
-
-
 # # #--------------------------------------------------------------------
-# if __name__ == "__main__":
-#         app.run(debug=True)
+if __name__ == "__main__":
+        app.run(debug=True)
 # # #--------------------------------------------------------------------
