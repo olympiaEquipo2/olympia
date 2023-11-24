@@ -4,16 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD:templates/registrarse.html
     <link rel="shortcut icon" href="/static/imagenes/minilogo.png" type="image/x-icon">
+=======
+    <link rel="shortcut icon" href="/imagenes/minilogo.png" type="image/x-icon">
+>>>>>>> c158b884f3da0eb82dfff40f9d52785ae97ae2b0:registrarse.html
     <link
         href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&family=Ubuntu:ital,wght@0,300;0,700;1,300;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<<<<<<< HEAD:templates/registrarse.html
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos_index.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo_barra_lateral.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo_footer.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo_registro.css') }}">
     <title>Inicio</title>
+=======
+    <link rel="stylesheet" href="css/estilos_index.css">
+    <link rel="stylesheet" href="css/estilo_barra_lateral.css">
+    <link rel="stylesheet" href="css/estilo_footer.css">
+    <link rel="stylesheet" href="css/estilo_registro.css">
+    <link rel="stylesheet" href="css/fuentesycolores.css">
+    <script src="https://kit.fontawesome.com/4c9feabc71.js" crossorigin="anonymous"></script>
+    <title>Registrate</title>
+>>>>>>> c158b884f3da0eb82dfff40f9d52785ae97ae2b0:registrarse.html
 </head>
 
 <body>
@@ -26,7 +40,11 @@
             <div class="barra-lateral-activar">
                 <div class="nombre-pagina barra-lateral-activar">
                     <ion-icon name="menu-outline" class="barra-lateral-activar"></ion-icon>
+<<<<<<< HEAD:templates/registrarse.html
                     <span><a href="index.html"><img src="/static/imagenes/logo.png" alt="" width="20px" height="60px"></a></span>
+=======
+                    <span><a href="index.html"><img src="/imagenes/logo.png" alt="" width="20px" height="60px"></a></span>
+>>>>>>> c158b884f3da0eb82dfff40f9d52785ae97ae2b0:registrarse.html
                 </div>
                 <button class="boton-ingresar" onclick="window.location.href='registrarse.html'">
                     <ion-icon name="log-in-outline"></ion-icon>
@@ -84,13 +102,7 @@
             </div>
         </div>
     </header>
-    
 
-   
-
-    
-
-<body>
     <main>
     <!--
         <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
@@ -101,55 +113,53 @@
         <p>Pronto podrás Registrate <br> para gestionar tus turnos y reservas</p>
     </div>
     -->
-    <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
+        <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
         <script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
         <script src="js/script.js"></script>
-    <section id="contacto">
-        <article class="formContainer">
-            <div class="encabezadoFormContacto">
-             
-            </div>
-    
-            <form  class="form">
-                <h2 class="form_title">Registrate</h2>
-                <p class="form_paragraph">Obtene un 15% de descuento en el primer mes</p>
-        
-                <div class="form_container">
-                    <div class="form_group">
-                        <label for="name" class="form_label">Nombre</label>
-                        <input type="text" id="name" class="form_input" placeholder=" ">
-                        <span class="form_line"></span>
+        <section id="contacto">
+            <article class="formContainer">
+                <form class="form" id="registroForm">
+                    <div class="form_title">
+                        <h1 >Regístrate</h1>
+                        <p>Obtén un 15% de descuento en el primer mes</p>
                     </div>
+                    <div class="form_container">
+                        <div class="form_group">
+                            <input type="text" id="nombre" class="form_input" placeholder="Nombre completo">
+                            <span class="form_line"></span>
+                        </div>
         
-                    <div class="form_group">
-                        <label for="adress" class="form_label">Apellido</label>
-                        <input type="text" id="adress" class="form_input" placeholder=" ">
-                        <span class="form_line"></span>
-                    </div>
+                        <div class="form_group">
+                            <input type="text" id="apellido" class="form_input" placeholder="Apellido/s">
+                            <span class="form_line"></span>
+                        </div>
         
-                    <div class="form_group">
-                        <label for="name" class="form_label">Email</label>
-                        <input type="text" id="email" class="form_input" placeholder=" ">
-                        <span class="form_line"></span>
-                    </div>
+                        <div class="form_group">
+                            <input type="text" id="email" class="form_input" placeholder="Correo electrónico">
+                            <span class="form_line"></span>
+                        </div>
         
-                    <div class="form_group">
-                        <label for="password" class="form_label">Password</label>
-                        <input type="text" id="password" class="form_input" placeholder="contraseña">
-                        
-                        <span class="form_line"></span>
-                    </div>
-        
+                        <div class="form_group">
+                            <input type="password" id="password1" class="form_input" placeholder="Contraseña">
+                            <span class="form_line"></span>
+                        </div>
+                        <div class="form_group">
+                            <input type="password" id="password2" class="form_input" placeholder="Repetir contraseña" >
+                            <input type="checkbox" id="mostrar" onclick="mostrarContrasena()">
+                            <label for="mostrar">Mostrar Contraseña</label>
+                            <span class="form_line"></span>
+                        </div>
                     <p id="mensajeError" style="color: red;"></p>
-        
-        
-    
-              <button type="submit" onclick="validarFormulario()">Enviar</button>
-              <p id="form-status"></p>
-            </form>
-          </article>
-         
-    </section>
+                    <button class="enviar" type="submit" onclick="validarRegistro()">Enviar</button>
+                    <p id="form-status"></p>
+                    </div>
+                </form>        
+            </article>
+            <article class="imgContainer">
+                <img src="./imagenes/Yoga02.jpg" alt="" />
+                <div class="degradado"></div>
+            </article>
+        </section>
     <footer class="contenedor_pie">
         <div>
             <p>&copy; Olympia 2023</p>
@@ -161,6 +171,9 @@
             <a href="#"><i class="fas fa-envelope" title="Correo Electronico"></i></a>
         </div>
     </footer>
+    <script src="./js/formspreeRegistro.js"></script>
+    <script src="./js/validacionRegistro.js"></script>
 </main>
+
 </body>
 </html>
