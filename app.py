@@ -93,18 +93,9 @@ class Usuario:
     
 
 
-def validar_usuario_login(self, email, contraseña):
-    self.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electrónico = '{email}'")
-    usuario_existe = self.cursor.fetchone()
-    if not usuario_existe:
-        return False
-    else:
-        if usuario_existe['contraseña'] == contraseña:
-            session['usuario'] = usuario_existe
-            return True
-        else: 
-            return False
-        
+
+
+                
 #----------------------------------------------------------------
 @app.route("/", methods=["GET"])
 def index():
@@ -143,12 +134,32 @@ def registrarse():
 
 @app.route("/login", methods=["POST", "GET"] )
 def login():
-    return render_template("login.html")
+    if request.method == "POST":
+        email = request.form['email']
+        contraseña = request.form['password1']
+        try:
+            usuario.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electrónico = '{email}'")
+            usuario_existe = usuario.cursor.fetchone() 
+            if not usuario_existe:
+                return render_template('registrarse.html', mensaje="Registrate para poder ingresar")
+                
+            else:
+                print(usuario_existe)
+                if check_password_hash( usuario_existe['contraseña'] , contraseña):
+                    
+                    return render_template('index.html')
+                else: 
+                    return render_template('login.html', errores='Las contrasena no es valida')
+        except mysql.connector.Error as err:
+            print(f"Error en el login: {err}")
+            return "Error en login"   
+    else:
+        return render_template("login.html")
 
 usuario = Usuario(host='localhost', user='root', password='', database='olympia')
 
 
-#----------------PRUEBAS---------------------------------------------4
+#----------------PRUEBAS---------------------------------------------
 
 
 
@@ -157,5 +168,5 @@ usuario = Usuario(host='localhost', user='root', password='', database='olympia'
 
 # # #--------------------------------------------------------------------
 # if __name__ == "__main__":
-#         app.run(debug=True)
+#     app.run(debug=True)
 # # #--------------------------------------------------------------------

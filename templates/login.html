@@ -19,7 +19,7 @@
                         <div class="form_group">
                             <input type="text" id="email" name="email" class="form_input" placeholder="Correo electrónico">
                             <span class="form_line"></span>
-                            <p id="mensajeError" style="color: red;">{{resultado}}</p>
+                            <p id="mensajeError" style="color: red;"></p>
                         </div>
         
                         <div class="form_group">
@@ -27,8 +27,8 @@
                             <span class="form_line"></span>
                         </div>
 
-                    <p id="mensajeError" style="color: red;"></p>
-                    <button class="enviar" type="submit" onclick="validarRegistro()">Enviar</button>
+                    <p id="mensajeError" style="color: red;">{{mensaje}}</p>
+                    <button class="enviar" type="submit">Enviar</button>
                     <p id="form-status"></p>
                     </div>
                 </form>        
