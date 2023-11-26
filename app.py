@@ -16,7 +16,7 @@ from flask_bcrypt import Bcrypt, generate_password_hash, check_password_hash
 #--------------------------------------------------------------------
 app = Flask(__name__, static_url_path='/static')
 bcrypt = Bcrypt(app)
-
+app.secret_key = 'secret_key_olympia'
 CORS(app) # Esto habilitará CORS para todas las rutas
 #--------------------------------------------------------------------
 
@@ -64,24 +64,28 @@ class Usuario:
 
 
     def mostrar_usuario(self, id_usuario):
-        sql = f"SELECT * FROM usuarios where id_usuario = {id_usuario}"
-        self.cursor.execute(sql)
-        usuario = self.cursor.fetchone()
-        self.conn.commit()
-        if usuario:
-            return usuario
-        else:
-            return False
+        try: 
+            sql = f"SELECT * FROM usuarios where id_usuario = {id_usuario}"
+            self.cursor.execute(sql)
+            usuario = self.cursor.fetchone()
+            self.conn.commit()
+            if usuario:
+                return usuario
+            else:
+                return False
+        except mysql.connector.Error as err:
+            print(f"Error al mostrar usuario: {err}")
+            return "Error al mostrar usuario"
 
-    def registrarse(self, nombre, apellido, email, contraseña):
+    def registrarse(self, nombre, apellido, email, contraseña, tipo_usuario):
         self.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electrónico = '{email}'")
         usuario_existe = self.cursor.fetchone()
         if usuario_existe:
             return 'Usuario ya registrado'
         contraseña_segura = generate_password_hash(contraseña).decode('utf-8')
 
-        sql = "INSERT INTO usuarios (nombre_completo,apellido,correo_electrónico,contraseña) VALUES (%s, %s, %s, %s)"
-        valores = (nombre,apellido,email,contraseña_segura)
+        sql = "INSERT INTO usuarios (nombre_completo,apellido,correo_electrónico,contraseña, tipo_usuario) VALUES (%s, %s, %s, %s, %s)"
+        valores = (nombre,apellido,email,contraseña_segura, tipo_usuario)
         
         try:
             self.cursor.execute(sql, valores)
@@ -121,7 +125,7 @@ def registrarse():
         email = request.form['email']
         contraseña = request.form['password1']
 
-        resultado_registro = usuario.registrarse( nombre, apellido, email, contraseña)
+        resultado_registro = usuario.registrarse( nombre, apellido, email, contraseña,2)
 
         if resultado_registro == "Usuario registrado con exito":
             #return render_template('login.html')
@@ -144,10 +148,9 @@ def login():
                 return render_template('registrarse.html', mensaje="Registrate para poder ingresar")
                 
             else:
-                print(usuario_existe)
                 if check_password_hash( usuario_existe['contraseña'] , contraseña):
-                    
-                    return render_template('index.html')
+                    session['id_usuario'] = usuario_existe['id_usuario']
+                    return redirect(url_for('usuario'))
                 else: 
                     return render_template('login.html', errores='Las contrasena no es valida')
         except mysql.connector.Error as err:
@@ -155,6 +158,20 @@ def login():
             return "Error en login"   
     else:
         return render_template("login.html")
+    
+@app.route("/usuario", methods=["GET"] )
+def usuario():
+    if 'id_usuario' in session:
+        id_usuario = int(session['id_usuario'])
+        datos_usuario = usuario.mostrar_usuario(id_usuario)
+        return render_template("usuario.html", usuario=datos_usuario)
+    else:
+        return redirect(url_for('login'))
+
+@app.route("/logout", methods=["GET"] )
+def logout():
+    session.pop('usuario', None)
+    return   redirect(url_for('index'))
 
 usuario = Usuario(host='localhost', user='root', password='', database='olympia')
 
@@ -167,6 +184,6 @@ usuario = Usuario(host='localhost', user='root', password='', database='olympia'
 
 
 # # #--------------------------------------------------------------------
-# if __name__ == "__main__":
-#     app.run(debug=True)
+#if __name__ == "__main__":
+#   app.run(debug=True)
 # # #--------------------------------------------------------------------

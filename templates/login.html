@@ -1,6 +1,6 @@
 {% extends 'index.html' %}
 
- {% block title %} <title>Registrate</title>{% endblock %}
+ {% block title %} <title>Olympia Login</title>{% endblock %}
 
 <body>
 
@@ -12,14 +12,14 @@
                 <form method="POST" class="form" id="loginForm" >
                     <div class="form_title">
                         <h1 >Login</h1>
-                        <p>Bienvenido!</p>
+                        <p>No tiene una cuenta? <a href="/registrarse">Cree una.</a></p>
                     </div>
                     <div class="form_container">
         
                         <div class="form_group">
                             <input type="text" id="email" name="email" class="form_input" placeholder="Correo electrónico">
                             <span class="form_line"></span>
-                            <p id="mensajeError" style="color: red;"></p>
+                            <p id="mensajeError" style="color: red;">{{errores}}</p>
                         </div>
         
                         <div class="form_group">
@@ -34,14 +34,14 @@
                 </form>        
             </article>
             <article class="imgContainer">
-                <img src="{{ url_for('static', filename='imagenes/Yoga02.jpg') }}" alt="" />
+                <img src="static/imagenes/Yoga02.jpg" alt="" />
                 <div class="degradado"></div>
             </article>
         </section>
 
         {% endblock %}
-    <script src="{{ url_for('static', filename='js/formspreeRegistro.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/validacionRegistro.js') }}"></script>
+    <script src="static/js/formspreeRegistro.js"></script>
+    <script src="static/js/validacionRegistro.js"></script>
     </main>
 </body>
 
