@@ -65,12 +65,26 @@ class Usuario:
 
     def mostrar_usuario(self, id_usuario):
         try: 
-            sql = f"SELECT * FROM usuarios where id_usuario = {id_usuario}"
+            sql = f"SELECT nombre_completo, apellido, correo_electronico, tipo_usuario FROM usuarios where id_usuario = {id_usuario}"
             self.cursor.execute(sql)
             usuario = self.cursor.fetchone()
             self.conn.commit()
             if usuario:
-                return usuario
+                try:
+                    sql = (f"SELECT C.nombre_curso AS NombreCurso, "
+                        f"DH.dias_y_horarios AS DiaYHorario FROM usuario_cursos UC JOIN usuarios U ON "
+                        f"UC.fk_id_usuario = U.id_usuario JOIN cursos_dias_horarios CDH ON UC.fk_id_cursos_dias_horarios = CDH.id_cursos_dias_horarios "
+                        f"JOIN cursos C ON CDH.fk_id_cursos = C.id_cursos JOIN dias_y_horarios DH ON CDH.fk_id_dias_y_horarios = DH.id_dias_y_horarios "
+                        f"WHERE U.id_usuario = {id_usuario}")
+
+                    self.cursor.execute(sql)
+                    cursos = self.cursor.fetchall()
+                    self.conn.commit()
+                    info_usuario = {'data_usuario': usuario, 'inscripciones': cursos}
+                    return info_usuario
+                except mysql.connector.Error as err:
+                    print(f"Error al mostrar los cursos del usuario: {err}")
+                    return "Error al mostrar los cursos del usuario"
             else:
                 return False
         except mysql.connector.Error as err:
@@ -78,13 +92,13 @@ class Usuario:
             return "Error al mostrar usuario"
 
     def registrarse(self, nombre, apellido, email, contraseña, tipo_usuario):
-        self.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electrónico = '{email}'")
+        self.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electronico = '{email}'")
         usuario_existe = self.cursor.fetchone()
         if usuario_existe:
             return 'Usuario ya registrado'
         contraseña_segura = generate_password_hash(contraseña).decode('utf-8')
 
-        sql = "INSERT INTO usuarios (nombre_completo,apellido,correo_electrónico,contraseña, tipo_usuario) VALUES (%s, %s, %s, %s, %s)"
+        sql = "INSERT INTO usuarios (nombre_completo,apellido,correo_electronico,contraseña, tipo_usuario) VALUES (%s, %s, %s, %s, %s)"
         valores = (nombre,apellido,email,contraseña_segura, tipo_usuario)
         
         try:
@@ -142,7 +156,7 @@ def login():
         email = request.form['email']
         contraseña = request.form['password1']
         try:
-            usuario.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electrónico = '{email}'")
+            usuario.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electronico = '{email}'")
             usuario_existe = usuario.cursor.fetchone() 
             if not usuario_existe:
                 return render_template('registrarse.html', mensaje="Registrate para poder ingresar")
@@ -152,7 +166,7 @@ def login():
                     session['id_usuario'] = usuario_existe['id_usuario']
                     return redirect(url_for('usuario'))
                 else: 
-                    return render_template('login.html', errores='Las contrasena no es valida')
+                    return render_template('login.html', errores='Las contraseña no es valida')
         except mysql.connector.Error as err:
             print(f"Error en el login: {err}")
             return "Error en login"   
@@ -173,13 +187,13 @@ def logout():
     session.pop('usuario', None)
     return   redirect(url_for('index'))
 
-usuario = Usuario(host='localhost', user='root', password='', database='olympia')
+usuario = Usuario(host='localhost', user='root', password='', database='olympiae')
 
 
 #----------------PRUEBAS---------------------------------------------
 
 
-
+#print(usuario.mostrar_usuario(2))
 #print(usuario.registrarse("miguel", "vincent", "mmppppp@h.com", 1234566666))
 
 
