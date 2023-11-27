@@ -20,10 +20,7 @@ app.secret_key = 'secret_key_olympia'
 CORS(app) # Esto habilitará CORS para todas las rutas
 #--------------------------------------------------------------------
 
-
-class Usuario:
-    #----------------------------------------------------------------
-    # Constructor de la clase
+class Database:
     def __init__(self, host, user, password, database):
         # Primero, establecemos una conexión sin especificar la base de datos
         self.conn = mysql.connector.connect(
@@ -63,12 +60,18 @@ class Usuario:
         # self.cursor = self.conn.cursor(dictionary=True)
 
 
+
+class Usuario:
+    def __init__(self,database):
+        self.db = database
+    def __str__(self):
+        return "database connection: host='localhost', user='root', password='', database='olympiae' "
     def mostrar_usuario(self, id_usuario):
         try: 
             sql = f"SELECT nombre_completo, apellido, correo_electronico, tipo_usuario FROM usuarios where id_usuario = {id_usuario}"
-            self.cursor.execute(sql)
-            usuario = self.cursor.fetchone()
-            self.conn.commit()
+            self.db.cursor.execute(sql)
+            usuario = self.db.cursor.fetchone()
+            self.db.conn.commit()
             if usuario:
                 try:
                     sql = (f"SELECT C.nombre_curso AS NombreCurso, "
@@ -77,9 +80,9 @@ class Usuario:
                         f"JOIN cursos C ON CDH.fk_id_cursos = C.id_cursos JOIN dias_y_horarios DH ON CDH.fk_id_dias_y_horarios = DH.id_dias_y_horarios "
                         f"WHERE U.id_usuario = {id_usuario}")
 
-                    self.cursor.execute(sql)
-                    cursos = self.cursor.fetchall()
-                    self.conn.commit()
+                    self.db.cursor.execute(sql)
+                    cursos = self.db.cursor.fetchall()
+                    self.db.conn.commit()
                     info_usuario = {'data_usuario': usuario, 'inscripciones': cursos}
                     return info_usuario
                 except mysql.connector.Error as err:
@@ -92,8 +95,8 @@ class Usuario:
             return "Error al mostrar usuario"
 
     def registrarse(self, nombre, apellido, email, contraseña, tipo_usuario):
-        self.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electronico = '{email}'")
-        usuario_existe = self.cursor.fetchone()
+        self.db.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electronico = '{email}'")
+        usuario_existe = self.db.cursor.fetchone()
         if usuario_existe:
             return 'Usuario ya registrado'
         contraseña_segura = generate_password_hash(contraseña).decode('utf-8')
@@ -102,15 +105,20 @@ class Usuario:
         valores = (nombre,apellido,email,contraseña_segura, tipo_usuario)
         
         try:
-            self.cursor.execute(sql, valores)
-            self.conn.commit()
+            self.db.cursor.execute(sql, valores)
+            self.db.conn.commit()
             return "Usuario registrado con exito"
         except mysql.connector.Error as err:
             print(f"Error al registrar usuario: {err}")
             return "Error al registrar usuario"
     
 
+# Create an instance of the Database class
+database = Database(host='localhost', user='root', password='', database='olympiae')
 
+# Create an instance of the Usuario class with the database instance
+usuario = Usuario(database)
+print(usuario)
 
 
                 
@@ -156,15 +164,15 @@ def login():
         email = request.form['email']
         contraseña = request.form['password1']
         try:
-            usuario.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electronico = '{email}'")
-            usuario_existe = usuario.cursor.fetchone() 
+            usuario.db.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electronico = '{email}'")
+            usuario_existe = usuario.db.cursor.fetchone() 
             if not usuario_existe:
                 return render_template('registrarse.html', mensaje="Registrate para poder ingresar")
                 
             else:
                 if check_password_hash( usuario_existe['contraseña'] , contraseña):
                     session['id_usuario'] = usuario_existe['id_usuario']
-                    return redirect(url_for('usuario'))
+                    return redirect(url_for('info_usuario'))
                 else: 
                     return render_template('login.html', errores='Las contraseña no es valida')
         except mysql.connector.Error as err:
@@ -174,7 +182,7 @@ def login():
         return render_template("login.html")
     
 @app.route("/usuario", methods=["GET"] )
-def usuario():
+def info_usuario():
     if 'id_usuario' in session:
         id_usuario = int(session['id_usuario'])
         datos_usuario = usuario.mostrar_usuario(id_usuario)
@@ -187,14 +195,13 @@ def logout():
     session.pop('usuario', None)
     return   redirect(url_for('index'))
 
-usuario = Usuario(host='localhost', user='root', password='', database='olympiae')
 
 
 #----------------PRUEBAS---------------------------------------------
 
 
 #print(usuario.mostrar_usuario(2))
-#print(usuario.registrarse("miguel", "vincent", "mmppppp@h.com", 1234566666))
+#print(usuario.registrarse("miguel", "vincent", "mmppppp@h.com", 1234566666, 1))
 
 
 # # #--------------------------------------------------------------------
