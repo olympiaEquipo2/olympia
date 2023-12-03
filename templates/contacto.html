@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+
+ {% block title %} <title>Contacto</title>{% endblock %}
+<body>
+    
+    <main>
+            {% block content %} 
+    <section id="contacto">
+        <article class="formContainer">
+            <div class="encabezadoFormContacto">
+              <h1>Escribinos</h1>
+              <p>
+                ¡Déjanos tu duda o inquietud y te responderemos a la brevedad!
+              </p>
+            </div>
+    
+            <form
+              action="https://formspree.io/f/mwkdaajv"
+              method="POST"
+              id="formContacto"
+            >
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder= "Nombre y apellido"
+                required
+              />
+              <p class="error" id="mensajeErrorNombre"></p>
+              <input type="email" id="email" name="email" placeholder="Correo electrónico" required />
+              <p class="error"></p>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                placeholder="Escribinos un mensaje"
+                required
+              ></textarea>
+              <p class="error"></p>
+    
+              <button type="submit" onclick="validarFormulario()">Enviar</button>
+              <p id="form-status"></p>
+            </form>
+          </article>
+          <article class="imgContainer">
+            <img src="{{ url_for('static', filename='imagenes/Yoga01.jpg') }}"alt="" />
+          </article>
+    </section>
+     
+    
+        {% endblock %}   
+<script src="./js/formspreeContacto.js"></script>
+<script src="./js/validacionContacto.js"></script>
+</main>
+</body>
+
+</html>
+
+
+
+

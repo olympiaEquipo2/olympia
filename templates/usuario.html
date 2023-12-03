@@ -1,0 +1,82 @@
+{% extends 'index.html' %}
+
+ {% block title %} <title></title>{% endblock %}
+
+<body>
+    <main>  
+        {% block content %}
+        <section id="perfil">
+            <div class="bienvenida">
+                <h1>Hola {{usuario.data_usuario.nombre_completo}}!</h1>
+            </div>
+            <div class="datos">
+                <h2>Mis datos</h2>
+                <div class="misdatos">
+                    <p><strong>Nombre:</strong> {{usuario.data_usuario.nombre_completo}} </p>
+                    <p><strong>Apellido:</strong> {{usuario.data_usuario.apellido}} </p>
+                    <p><strong>Correo electrónico:</strong> {{usuario.data_usuario.correo_electronico}} </p>                    
+                </div>
+            </div>
+            <div class= "mis_cursos">
+                <h2>Mis cursos</h2>
+                    <div class="mis_cursos_incripciones">
+                        <ul class = "lista_mis_cursos">
+                            {% if usuario.inscripciones %}
+                            <ul>
+                                {% for miscursos in usuario.inscripciones %}
+                                    <li>
+                                        <p><strong>{{ miscursos['NombreCurso']}}</strong>: <p>{{ miscursos['DiaYHorario']}}</p></p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No estás inscripto en ningún curso.</p>
+                        {% endif %}
+                        </ul>
+                    </div>
+            </div>
+            <div class="todos_cursos">
+                <h2>Cursos</h2>
+                <div>
+                    <ul class="todos_cursos_disponibles">
+                        {% set horarios_inscrito = [] %} <!-- Inicializa una lista para rastrear el estado de inscripción por horario -->
+                        
+                        {% if usuario.inscripciones %}
+                            {% for inscripcion in usuario.inscripciones %}
+                                <!-- Agrega una clave única (NombreCurso_Horario) a la lista para cada horario en el que el usuario está inscrito -->
+                                {% set _ = horarios_inscrito.append(inscripcion['NombreCurso'] ~ '_' ~ inscripcion['DiaYHorario']) %}
+                            {% endfor %}
+                        {% endif %}
+                        
+                        {% for curso_horario in cursos %}
+                            <li class="cada_curso">
+                                <strong>{{ curso_horario['NombreCurso'] }}</strong>
+                                <ul>
+                                    {% for horario in curso_horario['Horarios'].split(',') %}
+                                        <li class="cada_horario">{{ horario }}</li>
+                                        {% set curso_horario_key = curso_horario['NombreCurso'] ~ '_' ~ horario %}
+                                        
+                                        <!-- Verifica si el horario actual está en la lista horarios_inscrito -->
+                                        {% set inscrito = curso_horario_key in horarios_inscrito %}
+                                        
+                                        {% if inscrito %}
+                                            <button class="cancelar_reserva" data-id-usuario="{{ usuario.id_usuario }}" data-id-curso="{{ curso_horario['IdCurso'] }}" data-curso="{{ curso_horario['NombreCurso'] }}" data-horario="{{ horario }}">Cancelar Reserva</button>
+                                        {% else %}
+                                            <button class="agendar_reserva" data-id-usuario="{{ usuario.id_usuario }}" data-id-curso="{{ curso_horario['IdCurso'] }}" data-curso="{{ curso_horario['NombreCurso'] }}" data-horario="{{ horario }}">Reservar</button>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section>   
+        <script src="static/js/script.js"></script>
+        {% endblock %}
+
+
+    </main>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-h2{
+#cursos h2{
     text-align: center;
     color: #555;
     margin: 10px;
@@ -124,7 +124,7 @@ h3{
     }
     .grid-container_clases {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-around;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         max-width: 1300px;
@@ -135,7 +135,7 @@ h3{
     }
     .grid-container_cursos {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         max-width: 1300px;
         margin: 50px auto;

@@ -1,0 +1,104 @@
+#perfil{
+    margin: 20px;
+    padding: 30px;
+}
+
+.bienvenida {
+    text-align: left;
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+#perfil .datos{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;   
+    align-items: left;
+    margin: 20px;
+}
+
+#perfil .mis_cursos{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;   
+    align-items: left;
+    margin:20px;
+}
+
+#perfil .todos_cursos{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;   
+    align-items: left;
+    margin:20px;
+}
+
+#perfil .todos_cursos_disponibles{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; 
+        justify-content: flex-start; 
+        align-items: flex-start; 
+        list-style: none; 
+        padding: 0;
+    }
+
+
+#perfil .cada_curso{
+    border: 1px solid #ccc; 
+    padding: 10px;
+    width: 200px; 
+    box-sizing: border-box; 
+    }
+
+#perfil .cada_horario{
+    margin: 5px 0;
+}
+
+#perfil h2{
+    margin-bottom:20px;
+}
+
+#perfil .cancelar_reserva{
+    font-size: 1em;
+    padding: 5px 20px;
+    max-width: fit-content;
+    margin: 10px;
+    background-color: rgb(201, 61, 171);
+    color:white;
+    border: none;
+    border-radius: 5px;
+}
+
+#perfil .cancelar_reserva:hover{
+    background-color: rgb(224, 74, 192);
+}
+
+#perfil .agendar_reserva{
+    font-size: 1em;
+    padding: 5px 20px;
+    max-width: fit-content;
+    margin: 10px;
+    background-color: rgb(201, 61, 171);
+    color:white;
+    border: none;
+    border-radius: 5px;
+}
+
+#perfil .agendar_reserva:hover{
+    background-color: rgb(224, 74, 192);
+}
+
+li{
+    list-style-type: none;
+}

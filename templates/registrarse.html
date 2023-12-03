@@ -1,0 +1,73 @@
+{% extends 'index.html' %}
+
+ {% block title %} <title>Registrate</title>{% endblock %}
+
+<body>
+
+    <main>
+        
+        {% block content %}
+  <section id="contacto">
+            <article class="formContainer">
+                <form class="form" id="registroForm" method="POST">
+                    <div class="form_title">
+                        <h1 >Regístrate</h1>
+                        <p>Obtén un 15% de descuento en el primer mes</p>
+                    </div>
+                    <div class="form_container">
+                        <div class="form_group">
+                            <input type="text" id="nombre" name="nombre" class="form_input" placeholder="Nombre completo">
+                            <span class="form_line"></span>
+                        </div>
+        
+                        <div class="form_group">
+                            <input type="text" id="apellido" name="apellido" class="form_input" placeholder="Apellido/s">
+                            <span class="form_line"></span>
+                        </div>
+        
+                        <div class="form_group">
+                            <input type="text" id="email" name="email" class="form_input" placeholder="Correo electrónico">
+                            <span class="form_line"></span>
+                            <p id="mensajeErrorPy" style="color: red;">{{errores}}</p>
+                        </div>
+        
+                        <div class="form_group">
+                            <input type="password" id="password1" name="password1" class="form_input" placeholder="Contraseña">
+                            <span class="form_line"></span>
+                        </div>
+                        <div class="form_group">
+                            <input type="password" id="password2" name="password2" class="form_input" placeholder="Repetir contraseña" >
+                            <input type="checkbox" id="mostrar" onclick="mostrarContrasena()">
+                            <label for="mostrar">Mostrar Contraseña</label>
+                            <span class="form_line"></span>
+                        </div>
+                    <p id="mensajeError" style="color: red;"></p>
+                    <button class="enviar" type="submit" onclick="validarRegistro()">Enviar</button>
+                    <p id="form-status"></p>
+                    </div>
+                </form>        
+            </article>
+            <article class="imgContainer">
+                <img src="static/imagenes/Yoga02.jpg" alt="" />
+                <div class="degradado"></div>
+            </article>
+        </section>
+        <script src="static/js/validacionContacto.js"></script>
+        <script src="static/js/formspreeRegistro.js"></script>
+        {% endblock %}
+
+
+    </main>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
