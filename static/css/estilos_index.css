@@ -22,6 +22,10 @@
     margin-bottom: 30px;
 }
 
+#imagen_portada .title{
+    color:white;
+}
+
 .contenedor_cursos{
     display: flex;
     flex-direction: column;

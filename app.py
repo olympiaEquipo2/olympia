@@ -65,12 +65,13 @@ class Usuario:
     def __init__(self,database):
         self.db = database
     def __str__(self):
-        return "database connection: host='localhost', user='root', password='', database='olympiae' "
+        return "database connection: host='127.0.0.1', user='root', password= '1234', database='olympiae' "
     def mostrar_usuario(self, id_usuario):
         try: 
             sql = f"SELECT nombre_completo, apellido, correo_electronico, tipo_usuario FROM usuarios where id_usuario = {id_usuario}"
             self.db.cursor.execute(sql)
             usuario = self.db.cursor.fetchone()
+            print("usuario"+str(usuario))
             self.db.conn.commit()
             if usuario:
                 try:
@@ -83,7 +84,8 @@ class Usuario:
                     self.db.cursor.execute(sql)
                     cursos = self.db.cursor.fetchall()
                     self.db.conn.commit()
-                    info_usuario = {'data_usuario': usuario, 'inscripciones': cursos}
+                    info_usuario = {'id_usuario': id_usuario,'data_usuario': usuario, 'inscripciones': cursos}
+                    print(info_usuario)
                     return info_usuario
                 except mysql.connector.Error as err:
                     print(f"Error al mostrar los cursos del usuario: {err}")
@@ -93,6 +95,24 @@ class Usuario:
         except mysql.connector.Error as err:
             print(f"Error al mostrar usuario: {err}")
             return "Error al mostrar usuario"
+    
+    def mostrar_cursos(self):
+        try: 
+            if usuario:
+                sql =   '''
+                    SELECT C.id_cursos AS IdCurso, C.nombre_curso AS NombreCurso, GROUP_CONCAT(DH.dias_y_horarios) AS Horarios
+                    FROM cursos AS C
+                    JOIN cursos_dias_horarios AS CDH ON C.id_cursos = CDH.fk_id_cursos
+                    JOIN dias_y_horarios AS DH ON CDH.fk_id_dias_y_horarios = DH.id_dias_y_horarios
+                    GROUP BY C.id_cursos, C.nombre_curso
+                    '''
+                self.db.cursor.execute(sql)
+                cursos_horarios = self.db.cursor.fetchall()
+                print (cursos_horarios)
+                return cursos_horarios
+        except mysql.connector.Error as err:
+            print(f"Error al mostrar los cursos: {err}")
+            return "Error al mostrar cursos"
 
     def registrarse(self, nombre, apellido, email, contraseña, tipo_usuario):
         self.db.cursor.execute(f"SELECT * FROM usuarios WHERE correo_electronico = '{email}'")
@@ -111,10 +131,64 @@ class Usuario:
         except mysql.connector.Error as err:
             print(f"Error al registrar usuario: {err}")
             return "Error al registrar usuario"
-    
+        
+    def guardar_reserva(self, id_usuario, id_curso, horario):
+        #print(horario)
+        
+        #Sacamos el id de la tabla dias_y_horarios buscando por "horario"
+        self.db.cursor.execute(f"SELECT id_dias_y_horarios FROM dias_y_horarios WHERE dias_y_horarios = '{horario}'")
+        id_dias_y_horarios = self.db.cursor.fetchone()
+        id_dias_y_horarios = id_dias_y_horarios['id_dias_y_horarios']
+        #print (id_dias_y_horarios)
+        
+        #Ahora con el id de la tabla dias_y_horarios y el id_curso, sacamos el id de la tabla cursos_dias_y_horarios
+        self.db.cursor.execute(f"SELECT id_cursos_dias_horarios FROM cursos_dias_horarios WHERE fk_id_cursos = '{id_curso}' AND fk_id_dias_y_horarios = '{id_dias_y_horarios}'")
+        id_cursos_dias_horarios = self.db.cursor.fetchone()
+        id_cursos_dias_horarios = id_cursos_dias_horarios['id_cursos_dias_horarios']
+        print(id_cursos_dias_horarios)
+        
+        #En la tabla usuario_cursos, asociamos los id_usuario con el id_cursos_dias_horarios obtenido  
+        sql = "INSERT INTO usuario_cursos (fk_id_usuario, fk_id_cursos_dias_horarios) VALUES (%s, %s)"
+        valores = (id_usuario, id_cursos_dias_horarios)
+        
+        try:
+            self.db.cursor.execute(sql, valores)
+            self.db.conn.commit()
+            return "Curso reservado con exito"
+        except mysql.connector.Error as err:
+            print(f"Error al reservar curso: {err}")
+            return "Error al reservar curso"
+
+    def cancelar_reserva(self, id_usuario, id_curso, horario):
+        print(horario)
+        
+        #Sacamos el id de la tabla dias_y_horarios buscando por "horario"
+        self.db.cursor.execute(f"SELECT id_dias_y_horarios FROM dias_y_horarios WHERE dias_y_horarios = '{horario}'")
+        id_dias_y_horarios = self.db.cursor.fetchone()
+        id_dias_y_horarios = id_dias_y_horarios['id_dias_y_horarios']
+        print (id_dias_y_horarios)
+        
+        #Ahora con el id de la tabla dias_y_horarios y el id_curso, sacamos el id de la tabla cursos_dias_y_horarios
+        self.db.cursor.execute(f"SELECT id_cursos_dias_horarios FROM cursos_dias_horarios WHERE fk_id_cursos = '{id_curso}' AND fk_id_dias_y_horarios = '{id_dias_y_horarios}'")
+        id_cursos_dias_horarios = self.db.cursor.fetchone()
+        id_cursos_dias_horarios = id_cursos_dias_horarios['id_cursos_dias_horarios']
+        print(id_cursos_dias_horarios)
+        
+        #En la tabla usuario_cursos, asociamos los id_usuario con el id_cursos_dias_horarios obtenido  
+        sql = "DELETE FROM usuario_cursos WHERE fk_id_usuario = %s AND fk_id_cursos_dias_horarios = %s"
+        valores = (id_usuario, id_cursos_dias_horarios)
+        
+        try:
+            self.db.cursor.execute(sql, valores)
+            self.db.conn.commit()
+            return "Curso reservado con exito"
+        except mysql.connector.Error as err:
+            print(f"Error al reservar curso: {err}")
+            return "Error al reservar curso"
+
 
 # Create an instance of the Database class
-database = Database(host='localhost', user='root', password='', database='olympiae')
+database = Database(host='localhost', user='root', password='1234', database='olympiae')
 
 # Create an instance of the Usuario class with the database instance
 usuario = Usuario(database)
@@ -186,9 +260,46 @@ def info_usuario():
     if 'id_usuario' in session:
         id_usuario = int(session['id_usuario'])
         datos_usuario = usuario.mostrar_usuario(id_usuario)
-        return render_template("usuario.html", usuario=datos_usuario)
+        cursos_horarios = usuario.mostrar_cursos()
+        print (cursos_horarios)
+        #info_usuario = {'id_usuario': id_usuario,'data_usuario': usuario, 'inscripciones': cursos}
+        return render_template("usuario.html", usuario=datos_usuario, cursos = cursos_horarios)
     else:
         return redirect(url_for('login'))
+
+@app.route("/reservar_lugar", methods=["POST"])
+def reserva_lugar():
+    if 'id_usuario' in session:
+        curso = request.form.get('curso')  # Para datos en formato x-www-form-urlencoded
+        horario = request.form.get('horario')  # Para datos en formato x-www-form-urlencoded
+        id_usuario = request.form.get('idusuario')
+        id_curso = request.form.get('idcurso')
+        print(f"Curso recibido: {curso}")
+        print(f"ID Curso recibido: {id_curso}")
+        print(f"Horario recibido: {horario}")
+        print(f"ID usuario reserva: {id_usuario}")
+        
+        usuario.guardar_reserva(id_usuario,id_curso,horario)
+    
+
+        return jsonify({'mensaje': 'Reserva exitosa'})
+
+@app.route("/cancelar_reserva", methods=["DELETE"])
+def cancelar_reserva():
+    if 'id_usuario' in session:
+        #id_usuario = int(session['id_usuario'])
+        curso = request.form.get('curso')  # Para datos en formato x-www-form-urlencoded
+        horario = request.form.get('horario')  # Para datos en formato x-www-form-urlencoded
+        id_usuario = request.form.get('idusuario')
+        id_curso = request.form.get('idcurso')
+        print(f"Curso cancelado: {curso}")
+        print(f"ID Curso cancelado: {id_curso}")
+        print(f"Horario: {horario}")
+        print(f"ID usuario: {id_usuario}")
+
+        usuario.cancelar_reserva(id_usuario,id_curso,horario)
+
+        return jsonify({'mensaje': 'Cancelacion exitosa'})
 
 @app.route("/logout", methods=["GET"] )
 def logout():
@@ -205,6 +316,6 @@ def logout():
 
 
 # # #--------------------------------------------------------------------
-#if __name__ == "__main__":
-#   app.run(debug=True)
+if __name__ == "__main__":
+   app.run(debug=True)
 # # #--------------------------------------------------------------------

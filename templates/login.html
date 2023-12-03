@@ -1,47 +1,49 @@
 {% extends 'index.html' %}
 
- {% block title %} <title>Olympia Login</title>{% endblock %}
+{% block title %} <title>Olympia Login</title>{% endblock %}
 
 <body>
 
     <main>
         
         {% block content %}
-  <section id="contacto">
-            <article class="formContainer">
-                <form method="POST" class="form" id="loginForm" >
-                    <div class="form_title">
-                        <h1 >Login</h1>
-                        <p>No tiene una cuenta? <a href="/registrarse">Cree una.</a></p>
-                    </div>
-                    <div class="form_container">
-        
-                        <div class="form_group">
-                            <input type="text" id="email" name="email" class="form_input" placeholder="Correo electrónico">
-                            <span class="form_line"></span>
-                            <p id="mensajeError" style="color: red;">{{errores}}</p>
+            <section id="contacto">
+                <article class="formContainer">
+                    <form method="POST" class="form" id="loginForm" >
+                        <div class="form_title">
+                            <h1 >Login</h1>
+                            <p>No tiene una cuenta? <a href="/registrarse">Cree una.</a></p>
                         </div>
-        
-                        <div class="form_group">
-                            <input type="password" id="password1" name="password1" class="form_input" placeholder="Contraseña">
-                            <span class="form_line"></span>
+                        <div class="form_container">
+            
+                            <div class="form_group">
+                                <input type="text" id="email" name="email" class="form_input" placeholder="Correo electrónico">
+                                <span class="form_line"></span>
+                                <p id="mensajeError" style="color: red;">{{errores}}</p>
+                            </div>
+            
+                            <div class="form_group">
+                                <input type="password" id="password1" name="password1" class="form_input" placeholder="Contraseña">
+                                <input type="checkbox" id="mostrar" onclick="mostrarContrasena_login()">
+                                <label for="mostrar">Mostrar Contraseña</label>
+                                <span class="form_line"></span>
+                            </div>
+
+                        <p id="mensajeError" style="color: red;">{{mensaje}}</p>
+                        <button class="enviar" type="submit">Enviar</button>
+                        <p id="form-status"></p>
                         </div>
-
-                    <p id="mensajeError" style="color: red;">{{mensaje}}</p>
-                    <button class="enviar" type="submit">Enviar</button>
-                    <p id="form-status"></p>
-                    </div>
-                </form>        
-            </article>
-            <article class="imgContainer">
-                <img src="static/imagenes/Yoga02.jpg" alt="" />
-                <div class="degradado"></div>
-            </article>
-        </section>
-
+                    </form>        
+                </article>
+                <article class="imgContainer">
+                    <img src="static/imagenes/Yoga02.jpg" alt="" />
+                    <div class="degradado"></div>
+                </article>
+            </section>
+            <script src="static/js/validacionLogin.js"></script>
         {% endblock %}
-    <script src="static/js/formspreeRegistro.js"></script>
-    <script src="static/js/validacionRegistro.js"></script>
+    
+ 
     </main>
 </body>
 

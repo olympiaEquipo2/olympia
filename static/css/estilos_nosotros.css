@@ -8,13 +8,13 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-h2 {
+.nosotros h2 {
     text-align: center;
     color: #555;
     margin-bottom: 30px;
 }
 
-h3 {
+.nosotros h3 {
     color:rgb(201, 61, 171);
     margin-bottom: 10px;
 }
