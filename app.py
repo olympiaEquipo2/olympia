@@ -44,21 +44,6 @@ class Database:
         self.cursor.close()
         self.cursor = self.conn.cursor(dictionary=True)
 #-------------------------------------------------------------
-# Si no existe crea la tabla usuarios
-        # self.cursor = self.conn.cursor(dictionary=True)
-        # self.cursor.execute('''CREATE TABLE IF NOT EXISTS `{database}`.`usuarios` (
-        #             `id_usuario` INT NOT NULL AUTO_INCREMENT,
-        #             `nombre_completo` VARCHAR(30) NOT NULL,
-        #             `apellido` VARCHAR(30) NOT NULL,
-        #             `correo_electronico` VARCHAR(30) NOT NULL,
-        #             `contraseña` VARCHAR(11) NOT NULL,
-        #             PRIMARY KEY (`id_usuario`),
-        #             UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);''')
-        # self.conn.commit()
-        # self.cursor.close()
-
-        # self.cursor = self.conn.cursor(dictionary=True)
-
 
 
 class Usuario:
@@ -203,7 +188,8 @@ def index():
 
 @app.route("/actividades", methods=["GET"])
 def actividades():
-    return render_template("actividades.html")
+    cursos_horarios = usuario.mostrar_cursos()
+    return render_template("actividades.html", cursos=cursos_horarios)
 
 @app.route("/nosotros", methods=["GET"])
 def nosotros():
@@ -303,8 +289,8 @@ def cancelar_reserva():
 
 @app.route("/logout", methods=["GET"] )
 def logout():
-    session.pop('usuario', None)
-    return   redirect(url_for('index'))
+    session.pop('id_usuario', None)
+    return redirect(url_for('index'))
 
 
 

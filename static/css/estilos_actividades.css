@@ -70,7 +70,10 @@ p.clases{
     font-size: 20px;
 }
 
-
+.reserva a{
+    text-decoration: none;
+    color: white;
+}
 
 button.reserva{
     font-size: 1em;

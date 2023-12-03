@@ -11,129 +11,26 @@
                 <h2>Nuestros horarios</h2>
                 <p class="clases">Clases de Yoga</p>
                 <div class="grid-container_clases">
-                    <div class="tipo-yoga">
-                        <div class="tipo-horarios"><h3>Hatha Yoga</h3></div>
-                        <table>
-                            <tr>
-                                <th>Días</th>
-                                <th>Horarios</th>
-                            </tr>
-                            <tr>
-                                <td>Lunes</td>
-                                <td>8:00 AM - 9:30 AM
-                                    10:00 AM - 11:30 AM
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td>Martes</td>
-                                <td>10:00 AM - 11:30 AM</td>
-                            </tr>
-                            <tr>
-                                <td>Miércoles</td>
-                                <td>5:00 PM - 6:30 PM</td>
-                            </tr>
-                            <tr>
-                                <td>Jueves</td>
-                                <td>5:00 PM - 6:30 PM</td>
-                            </tr>
-                            <tr>
-                                <td>Viernes</td>
-                                <td>5:00 PM - 6:30 PM</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="tipo-yoga">
-                        <div class="tipo-horarios"><h3>Kundalini Yoga</h3></div>
-                        <table>
-                            <tr>
-                                <th>Días</th>
-                                <th>Horarios</th>
-                            </tr>
-                            <tr>
-                                <td>Lunes</td>
-                                <td>8:00 AM - 9:30 AM
-                                    10:00 AM - 11:30 AM
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td>Martes</td>
-                                <td>10:00 AM - 11:30 AM</td>
-                            </tr>
-                            <tr>
-                                <td>Miércoles</td>
-                                <td>5:00 PM - 6:30 PM</td>
-                            </tr>
-                            <tr>
-                                <td>Jueves</td>
-                                <td>5:00 PM - 6:30 PM</td>
-                            </tr>
-                            <tr>
-                                <td>Viernes</td>
-                                <td>5:00 PM - 6:30 PM</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="tipo-yoga">
-                        <div class="tipo-horarios"><h3>Restorative Yoga</h3></div>
-                        <table>
-                            <tr>
-                                <th>Días</th>
-                                <th>Horarios</th>
-                            </tr>
-                            <tr>
-                                <td>Lunes</td>
-                                <td>8:00 AM - 9:30 AM
-                                    10:00 AM - 11:30 AM
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Martes</td>
-                                <td>10:00 AM - 11:30 AM</td>
-                            </tr>
-                            <tr>
-                                <td>Miércoles</td>
-                                <td>5:00 PM - 6:30 PM</td>
-                            </tr>
-                            <tr>
-                                <td>Jueves</td>
-                                <td>5:00 PM - 6:30 PM</td>
-                            </tr>
-                            <tr>
-                                <td>Viernes</td>
-                                <td>5:00 PM - 6:30 PM</td>
-                            </tr>
-                        </table>
-                    </div>
-            
-            
-                </div>
-                <p class="clases">Cursos</p>
-                <div class="grid-container_cursos">
-                        <div class="tipo"><h3>Registros Akáshicos</h3>
-                            <p class="tipo-dias">Sábado 11/11</p>
-                            <button class="reserva">Reservá tu lugar</button>
+
+                        {% for curso in cursos %}
+                        <div class="tipo-yoga">
+                            <strong class="tipo-horarios">{{ curso['NombreCurso'] }}</strong>
+                            <table>
+                                {% for horario in curso['Horarios'].split(',') %}
+                                    <tr class="cada_horario">
+                                        <td>{{ horario }}
+                                            {% if session.id_usuario %}
+                                                <button class="reserva" ><a href="/usuario">Reservar</a></button>
+                                            {% else %}
+                                                <button class="reserva" ><a href="/login">Reservar</a></button>
+                                            {% endif %}
+                                            
+                                        </td></tr>
+                                        
+                                {% endfor %}
+                            </table>
                         </div>
-                        <div class="tipo"><h3>Códigos Solares</h3>
-                            <p class="tipo-dias">Sábado 11/11</p>
-                            <button class="reserva">Reservá tu lugar</button>
-                        </div>
-                        
-                        <div class="tipo"><h3>Péndulo hebreo</h3>
-                            <p class="tipo-dias">Sábado 11/11</p>
-                            <button class="reserva">Reservá tu lugar</button>
-                        </div>
-                        <div class="tipo"><h3>Reiki kundalini</h3>
-                            <p class="tipo-dias">Sábado 11/11</p>
-                            <button class="reserva">Reservá tu lugar</button>
-                        </div>
-                        <div class="tipo"><h3>Rito del útero</h3>
-                            <p class="tipo-dias">Sábado 11/11</p>
-                            <button class="reserva">Reservá tu lugar</button>
-                        </div>
-                </div> 
-            </div>   
+                        {% endfor %}
         </section>
         {% endblock %}
     </main>

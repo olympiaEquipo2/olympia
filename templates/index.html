@@ -94,18 +94,26 @@
                   height="60px" /></a
             ></span>
           </div>
-          <button
-            class="boton-ingresar"
-            onclick="window.location.href='/login'"
-          >
+          {% if session.id_usuario %}
+            <button class="boton-ingresar" onclick="window.location.href='/logout'">
+              <ion-icon name="log-in-outline"></ion-icon>
+              <span>Salir</span>
+            </button>
+            <button class="boton-perfil" onclick="window.location.href='/usuario'">
+              <ion-icon name="person-outline"></ion-icon>
+              <span>Mi perfil</span>
+            </button>
+        {% else %}
+              <button class="boton-ingresar" onclick="window.location.href='/login'">
             <ion-icon name="log-in-outline"></ion-icon>
             <span>Ingresar</span>
-          </button>
+            </button>
+            {% endif %}
         </div>
         <nav class="navegacion">
           <ul>
             <li>
-              <a href="/" class="activo">
+              <a href="/">
                 <ion-icon name="home-outline"></ion-icon>
                 <span>Inicio</span>
               </a>

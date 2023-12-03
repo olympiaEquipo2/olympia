@@ -102,6 +102,25 @@
     cursor: pointer;
 }
 
+.boton-perfil{
+    width: 100%; /*Ancho*/
+    height: 45px; /*Alto*/
+    display: flex; /*Elemento flexible*/
+    align-items: center; /*Centrar elementos*/
+    margin-bottom: 25px; /*Margen entre menu y boton*/
+    justify-content: center; /*Centrar elementos*/
+    border: none; /*Borrar borde*/
+    border-radius: 10px; /*Redondear boton*/
+    color: black;/*Color de fondo en variable*/
+    color: var(--color-boton-texto); /*Color texto en variable*/
+}
+
+.boton-perfil:hover{
+    background-color: lightgray; /*Color de fondo en variable*/
+    color: var(--color-boton-texto); /*Color texto en variable*/
+    cursor: pointer;
+}
+
 .barra-lateral ion-icon{
     min-width: 50px;
     font-size: 25px;
