@@ -50,7 +50,7 @@ class Usuario:
     def __init__(self,database):
         self.db = database
     def __str__(self):
-        return "database connection: host='127.0.0.1', user='root', password= '1234', database='olympiae' "
+        return "database connection: host='127.0.0.1', user='root', password= '', database='olympiae' "
     def mostrar_usuario(self, id_usuario):
         try: 
             sql = f"SELECT nombre_completo, apellido, correo_electronico, tipo_usuario FROM usuarios where id_usuario = {id_usuario}"
@@ -173,11 +173,10 @@ class Usuario:
 
 
 # Create an instance of the Database class
-database = Database(host='localhost', user='root', password='1234', database='olympiae')
+database = Database(host='localhost', user='root', password='', database='olympiaep')
 
 # Create an instance of the Usuario class with the database instance
 usuario = Usuario(database)
-print(usuario)
 
 
                 
@@ -303,5 +302,5 @@ def logout():
 
 # # #--------------------------------------------------------------------
 if __name__ == "__main__":
-   app.run(debug=True)
+  #  app.run(debug=True)
 # # #--------------------------------------------------------------------

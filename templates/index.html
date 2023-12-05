@@ -18,29 +18,29 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link
-    rel="stylesheet"
-    type="text/css"
-    href="static/css/estilo_barra_lateral.css"
+      rel="stylesheet"
+      type="text/css"
+      href="static/css/estilo_barra_lateral.css"
     />
     <link
-    rel="stylesheet"
-    type="text/css"
-    href="static/css/estilo_footer.css"
+      rel="stylesheet"
+      type="text/css"
+      href="static/css/estilo_footer.css"
     />
     <link
-    rel="stylesheet"
-    type="text/css"
-    href="static/css/estilo_registro.css"
+      rel="stylesheet"
+      type="text/css"
+      href="static/css/estilo_registro.css"
     />
     <link
-    rel="stylesheet"
-    type="text/css"
-    href="static/css/estilos_actividades.css"
+      rel="stylesheet"
+      type="text/css"
+      href="static/css/estilos_actividades.css"
     />
     <link
-    rel="stylesheet"
-    type="text/css"
-    href="static/css/estilos_contacto.css"
+      rel="stylesheet"
+      type="text/css"
+      href="static/css/estilos_contacto.css"
     />
     <link
       rel="stylesheet"
@@ -53,9 +53,9 @@
       href="static/css/estilos_nosotros.css"
     />
     <link
-    rel="stylesheet"
-    type="text/css"
-    href="static/css/estilos_usuario.css"
+      rel="stylesheet"
+      type="text/css"
+      href="static/css/estilos_usuario.css"
     />
     <link
       rel="stylesheet"
@@ -95,20 +95,29 @@
             ></span>
           </div>
           {% if session.id_usuario %}
-            <button class="boton-ingresar" onclick="window.location.href='/logout'">
-              <ion-icon name="log-in-outline"></ion-icon>
-              <span>Salir</span>
-            </button>
-            <button class="boton-perfil" onclick="window.location.href='/usuario'">
-              <ion-icon name="person-outline"></ion-icon>
-              <span>Mi perfil</span>
-            </button>
-        {% else %}
-              <button class="boton-ingresar" onclick="window.location.href='/login'">
+          <button
+            class="boton-ingresar"
+            onclick="window.location.href='/logout'"
+          >
+            <ion-icon name="log-in-outline"></ion-icon>
+            <span>Salir</span>
+          </button>
+          <button
+            class="boton-perfil"
+            onclick="window.location.href='/usuario'"
+          >
+            <ion-icon name="person-outline"></ion-icon>
+            <span>Mi perfil</span>
+          </button>
+          {% else %}
+          <button
+            class="boton-ingresar"
+            onclick="window.location.href='/login'"
+          >
             <ion-icon name="log-in-outline"></ion-icon>
             <span>Ingresar</span>
-            </button>
-            {% endif %}
+          </button>
+          {% endif %}
         </div>
         <nav class="navegacion">
           <ul>
@@ -136,12 +145,21 @@
                 <span>Contacto</span>
               </a>
             </li>
+            {% if session.id_usuario %}
+            <li>
+              <a href="/registrarse" style="display: none">
+                <ion-icon name="add-outline"></ion-icon>
+                <span>Registrate</span>
+              </a>
+            </li>
+            {% else %}
             <li>
               <a href="/registrarse">
                 <ion-icon name="add-outline"></ion-icon>
                 <span>Registrate</span>
               </a>
             </li>
+            {% endif %}
           </ul>
         </nav>
         <div>

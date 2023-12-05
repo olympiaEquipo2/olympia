@@ -1,0 +1,121 @@
+TABLA USUARIOS
+
+CREATE TABLE `olympiae`.`usuarios` (
+  `id_usuario` INT NOT NULL AUTO_INCREMENT,
+  `nombre_completo` VARCHAR(30) NOT NULL,
+  `apellido` VARCHAR(45) NULL,
+  `correo_electronico` VARCHAR(320) NOT NULL,
+  `contraseña` VARCHAR(60) NOT NULL,
+  `tipo_usuario` INT NOT NULL,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE INDEX `correo_electronico_UNIQUE` (`correo_electronico` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+TABLA CURSOS
+
+CREATE TABLE `olympiae`.`cursos` (
+  `id_cursos` INT NOT NULL AUTO_INCREMENT,
+  `nombre_curso` VARCHAR(45) NOT NULL,
+  `descripcion` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`id_cursos`))
+ENGINE = InnoDB;
+
+
+TABLA DIAS_Y_HORARIOS
+
+CREATE TABLE `olympiae`.`dias_y_horarios` (
+  `id_dias_y_horarios` INT NOT NULL AUTO_INCREMENT,
+  `dias_y_horarios` VARCHAR(60) NOT NULL,
+  PRIMARY KEY (`id_dias-y_horarios`));
+
+
+TABLA CURSOS_DIAS_HORARIOS
+
+CREATE TABLE `olympiae`.`cursos_dias_horarios` (
+  `id_cursos_dias_horarios` INT NOT NULL AUTO_INCREMENT,
+  `fk_id_cursos` INT NOT NULL,
+  `fk_id_dias_y_horarios` INT NOT NULL,
+  PRIMARY KEY (`id_cursos_dias_horarios`),
+  INDEX `fk_id_dias_y_horarios_idx` (`fk_id_dias_y_horarios` ASC) VISIBLE,
+  INDEX `fk_id_cursos_idx` (`fk_id_cursos` ASC) VISIBLE,
+  CONSTRAINT `fk_id_dias_y_horarios`
+    FOREIGN KEY (`fk_id_dias_y_horarios`)
+    REFERENCES `olympiae`.`dias-y_horarios` (`id_dias-y_horarios`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_id_cursos`
+    FOREIGN KEY (`fk_id_cursos`)
+    REFERENCES `olympiae`.`cursos` (`id_cursos`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+TABLA USUARIO_CURSOS
+
+CREATE TABLE `olympiae`.`usuario_cursos` (
+  `id_usuario_cursos` INT NOT NULL AUTO_INCREMENT,
+  `fk_id_usuario` INT NOT NULL,
+  `fk_id_cursos_dias_horarios` INT NOT NULL,
+  PRIMARY KEY (`id_usuario_cursos`),
+  INDEX `fk_id_usuario_idx` (`fk_id_usuario` ASC) VISIBLE,
+  INDEX `fk_id_curso_dias_horarios_idx` (`fk_id_cursos_dias_horarios` ASC) VISIBLE,
+  CONSTRAINT `fk_id_usuario`
+    FOREIGN KEY (`fk_id_usuario`)
+    REFERENCES `olympiae`.`usuario` (`id_usuario`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_id_curso_dias_horarios`
+    FOREIGN KEY (`fk_id_cursos_dias_horarios`)
+    REFERENCES `olympiae`.`cursos_dias_horarios` (`id_cursos_dias_horarios`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+
+INSERTS
+INSERT INTO cursos (nombre_curso, descripcion)
+VALUES 
+('Hatha Yoga', 'Es una de las formas más tradicionales y populares de yoga. Es un término que abarca muchos estilos y prácticas de yoga físico. "Hatha" se deriva de las palabras sánscritas "ha" que significa "sol" y "tha" que significa "luna". Esto simboliza la unión de fuerzas opuestas, como el equilibrio entre lo masculino y lo femenino, la fuerza y la flexibilidad, la energía y la calma.'),
+('Kundalini Yoga', ' Es una forma de yoga que se enfoca en despertar y liberar la energía kundalini, que se cree que está ubicada en la base de la columna vertebral. Se considera una forma poderosa y transformadora de yoga que combina posturas, técnicas de respiración (pranayama), canto (mantras), gestos de mano (mudras) y meditación para equilibrar el cuerpo, la mente y el espíritu.'),
+('Péndulo Hebréo', 'El péndulo hebreo es una herramienta utilizada en terapias energéticas y esotéricas con el propósito de armonizar y equilibrar energías en el cuerpo y el entorno. Su diseño se basa en símbolos y letras hebreas que se consideran portadores de energía y significado espiritual. El péndulo hebreo se utiliza mediante movimientos específicos sobre el cuerpo o a través del campo energético de una persona. Se cree que esta práctica puede ayudar a liberar bloqueos emocionales y físicos, promover la sanación, y restablecer el flujo equilibrado de energía vital. Es importante destacar que el péndulo hebreo es una herramienta que requiere conocimiento y experiencia para su correcta utilización, y es aconsejable buscar la guía de un terapeuta o instructor capacitado al explorar esta práctica.'),
+('Registros Akáshicos', 'Son un concepto espiritual que proviene de las creencias de varias tradiciones esotéricas y espirituales. Se cree que son un campo de energía o una biblioteca cósmica que contiene la información de todas las experiencias y eventos que han ocurrido, están ocurriendo y ocurrirán en el universo.'),
+('Reiki Kundalini', 'El Reiki es una forma de terapia energética que se originó en Japón a principios del siglo XX. Se basa en la creencia de que existe una energía vital universal que fluye a través de todos los seres vivos y que, cuando esta energía se encuentra en equilibrio, promueve la salud y el bienestar. Los practicantes de Reiki canalizan esta energía a través de sus manos, que se colocan sobre o cerca de cuerpo del receptor, con el fin de armonizar y revitalizar los centros energéticos del organismo.El objetivo del Reiki es promover la relajación profunda, aliviar el estrés, reducir el dolor y estimular el proceso de sanación física y emocional. Es una práctica no invasiva y complementaria a la medicina convencional, siendo utilizada como una herramienta para mejorar el bienestar integral de la persona. Cabe mencionar que el Reiki no requiere de creencias específicas y puede ser beneficioso para personas de distintas religiones o creencias espirituales.'),
+('Restorative Yoga', 'Es una forma suave y relajante de yoga que se centra en la relajación y la restauración del cuerpo y la mente. A diferencia de muchos otros estilos de yoga que implican posturas activas y dinámicas, en el Restorative Yoga, las posturas se mantienen durante períodos prolongados, a menudo con el apoyo de accesorios como almohadas, mantas y bloques. Esta práctica busca crear un ambiente de total comodidad y relajación.')
+
+
+INSERT INTO olympiae.`dias-y_horarios` (dias_y_horarios)
+ VALUES
+(' Lunes 8 a 9:30 AM'),
+('Lunes 10 a 11:30 AM'),
+('Martes 10 a 11:30AM'),
+('Miércoles 5 a 6:30 P'),
+('Jueves 5 a 6:30 PM'),
+('Viernes 5 a 6:30 PM;');
+
+INSERT INTO cursos_dias_horarios (fk_id_cursos, fk_id_dias_y_horarios) VALUES 
+(1,2),
+(1,3),
+(1,4),
+(1,5),
+(1,6),
+(2,1),
+(2,2),
+(2,3);
+
+INSERT INTO olympiae.usuario_cursos(fk_id_usuario, fk_id_cursos_dias_horarios) VALUES 
+(1,1),
+(1,2),
+(1,3);
+
+
+SELECT
+    C.nombre_curso AS NombreCurso,
+    DH.dias_y_horarios AS DiaYHorario
+FROM
+    usuario_cursos UC
+JOIN usuarios U ON UC.fk_id_usuario = U.id_usuario
+JOIN cursos_dias_horarios CDH ON UC.fk_id_cursos_dias_horarios = CDH.id_cursos_dias_horarios
+JOIN cursos C ON CDH.fk_id_cursos = C.id_cursos
+JOIN dias_y_horarios DH ON CDH.fk_id_dias_y_horarios = DH.id_dias_y_horarios
+WHERE
+    U.id_usuario = 1;  
+
+
